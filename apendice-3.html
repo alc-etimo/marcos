@@ -1,0 +1,1668 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apêndice 3: Arquiteturas Semânticas e Poder</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --primary-light: #e8f0f8;
+            --accent: #2c5282;
+            --accent-light: #4a90e2;
+            --danger: #c53030;
+            --warning: #d69e2e;
+            --success: #2f855a;
+            --border: #cbd5e0;
+            --border-light: #e2e8f0;
+            --card: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            font-size: 10.5pt;
+        }
+        
+        .case-header {
+            text-align: center;
+            border-bottom: 4px solid #003366;
+            padding-bottom: 20pt;
+            margin-bottom: 25pt;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20pt;
+            border-radius: 8px;
+        }
+        
+        .case-number {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5pt;
+        }
+        
+        .case-header h1 {
+            font-size: 20pt;
+            color: #003366;
+            margin-bottom: 2pt;
+            text-transform: none;
+            letter-spacing: normal;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .case-subtitle {
+            font-size: 14pt;
+            color: #003366;
+            font-weight: 600;
+            margin-bottom: 15pt;
+            font-style: italic;
+        }
+        
+        .case-tags {
+            margin-top: 20pt;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4pt;
+        }
+        
+        .case-tag {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            padding: 4pt 8pt;
+            border-radius: 5px;
+            font-size: 8.5pt;
+            font-weight: bold;
+            margin-right: 0;
+            margin-bottom: 8pt;
+        }
+        
+        .research-statement {
+            background: #f9f9f9;
+            padding: 15pt;
+            border-left: 4px solid #003366;
+            font-style: italic;
+            margin-bottom: 20pt;
+            text-align: justify;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        section {
+            margin-bottom: 30pt;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 5pt;
+            margin-bottom: 15pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8pt;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #003366;
+            margin-top: 18pt;
+            margin-bottom: 10pt;
+            border-left: 5px solid #003366;
+            padding-left: 10pt;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .bias-card {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .bias-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bias-card h4 {
+            color: #003366;
+            font-size: 10pt;
+            margin-bottom: 8pt;
+            font-weight: bold;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20pt;
+            margin: 20pt 0;
+        }
+        
+        .problem-box, .solution-box {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;	    
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .problem-box h3, .solution-box h3 {
+            text-align: center;
+            margin-top: 3pt;
+            border: none;
+            padding-left: 0;
+            color: #003366;
+            margin-bottom: 12pt;
+            padding-bottom: 8pt;
+            border-bottom: 1px solid #003366;
+        }
+
+        .click-hint {
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 9pt; 
+            color: var(--accent); 
+            margin-bottom: 8pt; 
+            font-style: italic;
+        }
+        
+        .hand-icon { 
+            width: 18px; 
+            height: 18px;
+            transform: rotate(-180deg);
+            fill: var(--accent); 
+            margin: 0 2px;
+        }
+
+        .hand-icon.left { 
+            transform: rotate(90deg); 
+        }
+
+        .hand-icon.right { 
+            transform: rotate(-90deg); 
+        }
+
+        .click-hint .arrows-container {
+            display: flex;
+            align-items: center;
+            margin: 0 6px;
+        }
+
+        .image-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8pt;
+            margin: 10pt 0;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        .image-caption {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 4pt;
+            font-style: italic;
+        }
+
+        .analysis-box {
+            background: #fff; 
+            border: 1px solid var(--border);
+            padding: 12pt; 
+            border-radius: 6px; 
+            margin-top: 10pt;
+        }
+        
+        .analysis-box h4 { 
+            font-size: 10pt; 
+            text-transform: uppercase; 
+            color: var(--accent); 
+            margin-bottom: 8pt;
+            padding-bottom: 4pt;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        ul.analysis-list { 
+            margin-left: 0;
+            margin-top: 0;
+        }
+        
+        ul.analysis-list li { 
+            margin-bottom: 12pt;
+            font-size: 10pt; 
+            list-style: none;
+            padding-left: 15pt;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        ul.analysis-list li::before { 
+            content: '→'; 
+            position: absolute; 
+            left: 0; 
+            color: var(--primary); 
+        }
+
+        .error-tag {
+            display: inline-block;
+            background: #fff5f5;
+            color: var(--danger);
+            padding: 2pt 6pt;
+            border-radius: 4px;
+            font-size: 7pt;
+            font-weight: 600;
+            margin-top: 5pt;
+            margin-right: 4pt;
+            border: 1px solid #feb2b2;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: help;
+        }
+
+        .error-tag:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .error-tag::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 75%;
+            transform: translateX(-50%);
+            background: rgba(197, 48, 48, 0.95);
+            color: white;
+            padding: 6pt 10pt;
+            border-radius: 4px;
+            font-size: 8.5pt;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            margin-bottom: 6pt;
+        }
+
+        .error-tag:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .error-tag-after {
+            display: inline-block;
+            background: #F2FFEE;
+            color: var(--accent);
+            padding: 2pt 4pt;
+            border-radius: 4px;
+            border: 1px solid #9ae6b4;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-top: 5pt;
+            margin-right: 4pt;
+            transition: all 0.3s ease;
+            position: relative;            
+        }
+
+        .error-tag-after:hover {
+            background: #2f855a;
+            color: white;
+        }
+
+        .error-tag-after:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tech-term {
+            background: var(--primary-light);
+            color: var(--accent);
+            padding: 1pt 4pt;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 9.5pt;
+            cursor: help;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tech-term:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .tech-term::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 70%;
+            transform: translateX(-40%);
+            background: rgba(44, 82, 130, 0.95);
+            color: white;
+            padding: 6pt 10pt;
+            border-radius: 4px;
+            font-size: 8.5pt;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            margin-bottom: 6pt;
+        }
+
+        .tech-term:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }        
+
+        .interactive-rewrite {
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20pt 0;
+            background: var(--card);
+        }
+        
+        .tab-nav { 
+            display: flex; 
+            background: var(--primary-light); 
+            border-bottom: 1px solid var(--border); 
+        }
+        
+        .tab-btn { 
+            flex: 1; 
+            padding: 10pt; 
+            border: none; 
+            background: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+            color: var(--primary); 
+            transition: 0.3s; 
+            font-size: 10pt;
+        }
+        
+        .tab-btn.active { 
+            background: var(--primary); 
+            color: white; 
+        }
+        
+        .tab-content { 
+            padding: 15pt; 
+            display: none; 
+        }
+        
+        .tab-content.active { 
+            display: block; 
+        }
+        
+        .methodology-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20pt 0;
+            font-size: 9pt;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .methodology-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10pt;
+            border: 1px solid var(--primary-light);
+            vertical-align: middle;
+        }
+        
+        .methodology-table td {
+            padding: 8pt;
+            border: 1px solid var(--border-light);
+            vertical-align: top;
+            background: white;
+        }
+        
+        .methodology-table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+        
+        .methodology-table .example-cell {
+            text-align: center;
+            padding: 5pt;
+        }
+        
+        .methodology-table .example-img {
+            max-width: 120px;
+            max-height: 60px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .severity-badge {
+            display: inline-block;
+            padding: 3pt 8pt;
+            border-radius: 12px;
+            font-size: 8.5pt;
+            font-weight: bold;
+            margin: 2pt;
+        }
+        
+        .critical-severity { background: #fed7d7; color: #7b341e; border: 1px solid #fc8181; }
+        .major-severity { background: #feebc8; color: #744210; border: 1px solid #f6ad55; }
+        .minor-severity { background: #c6f6d5; color: #22543d; border: 1px solid #68d391; }
+        .not-present-severity { background: #e2e8f0; color: #2d3748; border: 1px solid #a0aec0; }
+        
+        .pipeline-wrapper {
+            position: relative;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 30pt 50pt;
+            margin: 20pt 0;
+            overflow: hidden;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pipeline-container {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+        
+        .pipeline-box {
+            width: 280px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20pt;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: absolute;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.4s ease;
+        }
+        
+        .pipeline-box.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11pt;
+            font-weight: bold;
+            z-index: 3;
+        }
+        
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 51, 102, 0.2);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+        }
+        
+        .arrow-btn:hover {
+            background: rgba(0, 51, 102, 0.8);
+            opacity: 1;
+        }
+        
+        .arrow-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
+        
+        .arrow-btn:disabled:hover {
+            background: rgba(0, 51, 102, 0.2);
+        }
+        
+        .arrow-btn.prev {
+            left: 10px;
+        }
+        
+        .arrow-btn.next {
+            right: 10px;
+        }
+
+        .csat-scale {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8pt;
+            margin: 15pt 0;
+        }
+        
+        .csat-level {
+            padding: 10pt;
+            border-radius: 6px;
+            text-align: center;
+            color: white;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        
+        .csat-5 { background: #2f855a; }
+        .csat-4 { background: #48bb78; }
+        .csat-3 { background: #ecc94b; color: #333; }
+        .csat-2 { background: #ed8936; }
+        .csat-1 { background: #c53030; }
+
+        .severity-badges {
+            display: flex;
+            gap: 8pt;
+            margin: 10pt 0;
+            flex-wrap: wrap;
+        }
+        
+        .severity-badge {
+            padding: 6pt 12pt;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        
+        .critical-badge { background: #fff5f5; color: #c53030; border: 1px solid #fc8181; }
+        .major-badge { background: #fefcbf; color: #975a16; border: 1px solid #f6e05e; }
+        .minor-badge { background: #c6f6d5; color: #22543d; border: 1px solid #9ae6b4; }
+
+        .results-vertical {
+            display: block;
+            margin: 20pt 0;
+        }
+
+        .results-vertical > div {
+            margin-bottom: 20pt;
+        }
+
+        .results-vertical > div:last-child {
+            margin-bottom: 0;
+        }
+
+        .qualitative-box, .quantitative-box, .impact-box {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            width: 100%;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10pt;
+            margin-top: 10pt;
+        }
+        
+        .metric-card {
+            background: #f0f7ff;
+            border: 1px solid #003366;
+            border-radius: 6px;
+            padding: 10pt;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 4pt;
+        }
+        
+        .metric-label {
+            font-size: 9pt;
+            color: #666;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #003366, hsl(215, 50%, 35%));
+            color: white;
+            padding: 1.75rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(31, 79, 176, 0.2);
+            margin: 1.5rem 0;
+        }
+        
+        .quote-box p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            font-style: italic;
+            opacity: 0.95;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .quote-box .source {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-style: normal;
+        }
+        
+        ul {
+            margin-left: 20pt;
+            margin-top: 8pt;
+        }
+        
+        li {
+            margin-bottom: 8pt;
+            text-align: justify;
+        }
+        
+        strong {
+            color: #003366;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15pt 0;
+            font-size: 9pt;
+        }
+        
+        .data-table th {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: bold;
+            text-align: left;
+            padding: 8pt;
+            border: 1px solid var(--border);
+        }
+        
+        .data-table td {
+            padding: 6pt 8pt;
+            border: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        @media print {
+            body { padding: 5mm; }
+        }
+        
+        @media (max-width: 768px) {
+            .methodology-table {
+                font-size: 8pt;
+            }
+            
+            .methodology-table th,
+            .methodology-table td {
+                padding: 5pt 3pt;
+            }
+            
+            .metrics-grid, .csat-scale {
+                grid-template-columns: 1fr;
+            }
+            
+            .pipeline-wrapper {
+                padding: 20pt 40pt;
+            }
+            
+            .pipeline-box {
+                width: 240px;
+            }
+            
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .severity-badges {
+                flex-direction: column;
+            }
+        }
+
+        .example-block {
+            margin: 10pt 0;
+            padding: 8pt;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .example-block strong {
+            display: block;
+            margin-bottom: 4pt;
+            color: var(--accent);
+        }
+        
+        .cc-quote {		
+            background: #e3f2fd;
+            border-left: 4px solid #2c5282;
+            padding: 12pt;
+            margin: 12pt 0;
+            font-style: italic;
+            border-radius: 0 4px 4px 0;
+		
+        }
+        
+        /* NOVOS ESTILOS PARA O APÊNDICE 3 */
+        .transformation-flow {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15pt;
+            margin: 20pt 0;
+        }
+        
+        .transformation-phase {
+            background: white;
+            border-radius: 8px;
+            padding: 15pt;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .transformation-phase:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phase-1 { border-color: #c53030; }
+        .phase-2 { border-color: #d69e2e; }
+        .phase-3 { border-color: #2f855a; }
+        
+        .transformation-phase h4 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 10pt;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+        
+        .phase-icon {
+            font-size: 24pt;
+            text-align: center;
+            margin-bottom: 10pt;
+        }
+        
+        .term-example {
+            background: #f8f9fa;
+            padding: 8pt;
+            margin: 8pt 0;
+            border-radius: 4px;
+            border-left: 3px solid;
+            font-size: 9.5pt;
+        }
+        
+        .term-before { border-left-color: #c53030; }
+        .term-during { border-left-color: #d69e2e; }
+        .term-after { border-left-color: #2f855a; }
+        
+        .vocabulary-entry {
+            background: #e8f0f8;
+            border: 1px solid #2c5282;
+            border-radius: 6px;
+            padding: 12pt;
+            margin: 15pt 0;
+            font-size: 9.5pt;
+        }
+        
+        .entry-field {
+            margin-bottom: 5pt;
+        }
+        
+        .entry-label {
+            font-weight: bold;
+            color: #2c5282;
+            display: inline-block;
+            width: 120px;
+        }
+/* Abas Antes/Durante/Depois */
+.phase-tabs {
+    display: flex;
+    margin-bottom: 0;
+    background: var(--primary-light);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.phase-tab {
+    flex: 1;
+    padding: 12pt;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 10pt;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.phase-tab.active {
+    color: white;
+}
+
+.phase-tab.phase-before.active { background: #003366; }
+.phase-tab.phase-during.active { background: #003366; }
+.phase-tab.phase-after.active { background: #003366; }
+
+.phase-content {
+    display: none;
+    padding: 20pt;
+    border: 2px solid;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 20pt;
+}
+
+.phase-content.active {
+    display: block;
+}
+
+.phase-content.before-phase { 
+    border-color: #c53030; 
+    background: #fff5f5;
+}
+
+.phase-content.during-phase { 
+    border-color: #d69e2e; 
+    background: #fefcbf;
+}
+
+.phase-content.after-phase { 
+    border-color: #2f855a; 
+    background: #f0fff4;
+}
+
+/* Cards de outras aplicações */
+.other-applications {
+    margin-top: 25pt;
+    padding-top: 15pt;
+    border-top: 2px dashed var(--border);
+}
+
+.toggle-applications {
+    background: var(--primary-light);
+    border: none;
+    padding: 8pt 15pt;
+    border-radius: 20px;
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 9.5pt;
+    transition: all 0.3s ease;
+}
+
+.toggle-applications:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15pt;
+    margin-top: 15pt;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.applications-grid.expanded {
+    max-height: 500px;
+}
+
+.application-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 15pt;
+    transition: all 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.application-card h4 {
+    color: var(--primary);
+    font-size: 10.5pt;
+    margin-bottom: 10pt;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 8pt;
+}
+
+.app-problem {
+    background: #fff5f5;
+    padding: 8pt;
+    border-radius: 4px;
+    margin-bottom: 8pt;
+    border-left: 3px solid #c53030;
+}
+
+.app-solution {
+    background: #f0fff4;
+    padding: 8pt;
+    border-radius: 4px;
+    margin-bottom: 8pt;
+    border-left: 3px solid #2f855a;
+}
+
+.app-impact {
+    background: #fefcbf;
+    padding: 8pt;
+    border-radius: 4px;
+    border-left: 3px solid #d69e2e;
+}
+
+/* Indicador de fase ativa */
+.phase-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6pt;
+}
+
+.indicator-before { background: #c53030; }
+.indicator-during { background: #d69e2e; }
+.indicator-after { background: #2f855a; }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- CABEÇALHO DO APÊNDICE 3 -->
+    <div class="case-header">
+        <div class="case-number">APÊNDICE 3 – ARQUITETURAS SEMÂNTICAS</div>
+        <h1>Classificação como Ato de Poder:</h1>
+        <div class="case-subtitle">arquiteturas simbólicas, regimes de significado e infraestrutura linguística</div>
+        <div class="case-tags">
+                       <span class="case-tag">Regimes de Significado</span>
+            <span class="case-tag">Governança Terminológica</span>
+            <span class="case-tag">Poder de Nomeação</span>
+            <span class="case-tag">Infraestrutura Linguística</span>
+        </div>
+    </div>
+
+    <!-- BOX DE ABERTURA -->
+    <div class="research-statement">
+        <strong>Contexto de pesquisa</strong>: este estudo parte de uma constatação crítica: a criação de sistemas de classificação em ambientes corporativos de grande escala não é apenas um ato técnico, mas <strong>um ato de poder simbólico</strong>. Ao estruturar vocabulários controlados e taxonomias, estamos criando <strong>arquiteturas de significado</strong> que determinam quem é incluído, excluído, compreendido ou silenciado. A análise mostra como decisões aparentemente técnicas sobre "termos preferenciais" e "sinônimos" constituem na verdade <strong>regimes de significação</strong> com implicações éticas profundas.
+    </div>
+
+    <!-- SEÇÃO 1: O PROBLEMA DOS REGIMES DE SIGNIFICADO -->
+    <section>
+        <h2>O PROBLEMA: FRAGMENTAÇÃO SIMBÓLICA EM ESCALA</h2>
+        <p style="text-align: justify;">
+            Uma organização multinacional enfrentava não apenas um problema técnico de comunicação, mas uma <strong>crise de regimes de significado</strong>: clientes, operadores e sistemas operavam em <strong>arquiteturas semânticas divergentes</strong>, cada uma com suas próprias regras de nomeação e validação. O resultado era mais do que ineficiência: era uma <strong>forma de exclusão simbólica automatizada</strong>, onde aqueles que não falavam na "linguagem certa" tornavam-se invisíveis para os sistemas.
+        </p>
+        <br>
+        <div class="cards-grid">
+            <div class="bias-card">
+                <h4 style="font-size:12px;">Regimes Colidindo</h4>
+                <p>Cliente (regime coloquial): <br> "minha conta tá caríssima"<br><br> Sistema (regime técnico): <br>"valor da fatura"<br><br><strong>Colisão:</strong> Nenhum reconhecimento mútuo</p>
+            </div>
+            
+            <div class="bias-card">
+                <h4 style="font-size:12px;">Poder Deslocado</h4><br>
+                <p>30.000 operadores jovens <br>criam suas próprias <br>arquiteturas emergentes <br>para sobreviver a sistemas<br>que não reconhecem suas<br>formas de significação.</p>
+            </div>
+            
+            <div class="bias-card">
+                <h4 style="font-size:12px;">Falha Estrutural</h4>
+                <p>Fragmentação semântica <br> → <br> arquiteturas incomunicáveis <br> → <br> escalonamento sistêmico <br> → <br> custo existencial ↑ <br> → <br> legitimidade ↓</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div style="background: #f5f5f5; padding: 20pt; border-radius: 4px;">
+                <strong>EVIDÊNCIA DE REGIMES DIVERGENTES:</strong><br><br>
+                <div style="font-family: monospace; font-size: 9pt; text-align: left; padding: 10pt; background: white; border: 1px solid #ccc;">
+                    <strong>Transcrição:</strong> "Oi, meu internet tá ruim desde ontem" (regime coloquial)<br>
+                    <strong>Busca do Operador:</strong> "queda de sinal" (regime funcional)<br>
+                    <strong>Retorno do Sistema:</strong> "Otimização de Rede 5G" (regime técnico)<br>
+                    <strong>Falha:</strong> Três regimes de significado incomensuráveis
+                </div>
+            </div>
+            <div class="image-caption">Exemplo da incomensurabilidade entre regimes de significação em sistemas automatizados</div>
+        </div>
+    </section>
+
+    <!-- FUNDAMENTAÇÃO TEÓRICA -->
+    <section>
+        <h2>FUNDAMENTAÇÃO: DA ARQUITETURA SIMBÓLICA À ÉTICA DA CLASSIFICAÇÃO</h2>
+        
+        <p style="text-align: justify;">
+            Análise que conecta <strong>teoria crítica dos sistemas simbólicos, poder de nomeação e ética da classificação</strong>:
+        </p>
+        
+        <div class="two-columns">
+            <div class="problem-box">
+                <h3>Conceitos Teóricos Aplicados</h3>
+                <ul>
+                    <li><span class="tech-term" data-tooltip="Sistemas organizados de classificação como estruturas de poder">Arquitetura Simbólica:</span> Categorização como infraestrutura de poder</li>
+                    <li><span class="tech-term" data-tooltip="Conjuntos de regras que determinam o que pode ser dito e reconhecido">Regimes de Significado:</span> Limites do dizível/legítimo</li>
+                    <li><span class="tech-term" data-tooltip="Quem tem autoridade para nomear e classificar">Poder de Nomeação:</span> Autoridade terminológica como poder simbólico</li>
+                    <li><span class="tech-term" data-tooltip="Uso real da linguagem como evidência empírica">Linguística de Corpus:</span> Dados de fala como crítica às prescrições</li>
+                    <li><span class="tech-term" data-tooltip="Consequências éticas das decisões de classificação">Ética da Classificação:</span> Inclusão/exclusão como resultado de escolhas técnicas</li>
+                </ul>
+            </div>
+            
+            <div class="solution-box">
+                <h3>Intervenção Estrutural</h3>
+                <ul>
+                    <li><strong>Análise de 500+ horas</strong> de dados de fala como evidência de regimes de significado</li>
+                    <li><strong>Mapeamento crítico</strong> de 700+ termos como expressão de poder de nomeação</li>
+                    <li><strong>Criação de arquitetura</strong> que reconhece múltiplos regimes como legítimos</li>
+                    <li><strong>Mediação simbólica</strong> entre regimes divergentes (coloquial, funcional, técnico)</li>
+                    <li><strong>Implementação ética</strong> que torna visíveis as hierarquias de classificação</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIPÓTESE CENTRAL -->
+    <div class="research-statement" style="background: #e3f2fd; border-left-color: #4a5568;">
+        <strong>Hipótese central</strong>: a fragmentação semântica em sistemas corporativos não é um problema de comunicação, mas de <strong>arquiteturas simbólicas incompatíveis</strong>. Cada grupo (clientes, operadores, sistemas) opera dentro de <strong>regimes de significado</strong> distintos com regras próprias de validação. A solução não está em impor um regime sobre os outros, mas em criar <strong>infraestruturas de tradução</strong> que reconheçam a legitimidade de cada regime enquanto criam pontes funcionais entre eles.
+    </div>
+
+    <!-- SEÇÃO DE METODOLOGIA -->
+    <section>
+        <h2>METODOLOGIA: DECONSTRUÇÃO E RECONSTRUÇÃO DE ARQUITETURAS</h2>
+        
+        <div class="research-statement" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 4px solid #4a5568; padding: 20pt; border-radius: 0 8px 8px 0;">
+            <strong>Inovação metodológica</strong>: transformei <strong>dados brutos de regimes de significado em conflito</strong> em <strong>infraestrutura simbólica negociada</strong>, criando um processo para desconstruir e reconstruir arquiteturas de classificação com consciência ética.
+        </div>
+        
+        <h3>1. Fluxo de arquitetura simbólica em 5 etapas</h3>
+        
+        <div class="pipeline-wrapper">
+            <button class="arrow-btn prev" onclick="moveMethodSlide(-1)" id="methodPrevBtn" disabled>❮</button>
+            
+            <div class="pipeline-container" id="methodPipeline">
+                <!-- Box 1 -->
+                <div class="pipeline-box active" id="methodStep1">
+                    <div class="step-number">1</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Etnografia de Regimes</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Identificação dos regimes de significado em operação (coloquial, funcional, técnico)
+                    </p>
+                </div>
+                
+                <!-- Box 2 -->
+                <div class="pipeline-box" id="methodStep2">
+                    <div class="step-number">2</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Crítica das Incomensurabilidades</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Análise dos pontos onde regimes divergem criando exclusão sistêmica
+                    </p>
+                </div>
+                
+                <!-- Box 3 -->
+                <div class="pipeline-box" id="methodStep3">
+                    <div class="step-number">3</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Arquitetura Negociada</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Criação de estrutura que reconhece múltiplos regimes como legítimos
+                    </p>
+                </div>
+                
+                <!-- Box 4 -->
+                <div class="pipeline-box" id="methodStep4">
+                    <div class="step-number">4</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Validação Ética</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Teste das decisões de classificação <br>contra princípios de inclusão
+                    </p>
+                </div>
+                
+                <!-- Box 5 -->
+                <div class="pipeline-box" id="methodStep5">
+                    <div class="step-number">5</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Escalonamento Crítico</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Expansão da arquitetura mantendo consciência dos regimes de poder
+                    </p>
+                </div>
+            </div>
+            
+            <button class="arrow-btn next" onclick="moveMethodSlide(1)" id="methodNextBtn">❯</button>
+        </div>
+        
+        <h3>2. Sistema de decisões: ética da classificação</h3>
+        
+        <table class="methodology-table compact">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Dimensão Ética</th>
+                    <th style="width: 18%;">Tipo de Decisão</th>
+                    <th style="width: 22%;">Critério de Mediação</th>
+                    <th style="width: 35%;">Exemplo Concreto</th>
+                    <th style="width: 10%;">Complexidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Inclusão Simbólica</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Regime vs. Regime</td>
+                    <td style="text-align: center; vertical-align: middle;">"Qual arquitetura inclui mais formas de significação sem perder função?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div style="font-size: 9pt; padding: 8pt; background: #f5f5f5; border-radius: 4px;">
+                            <strong>Regime Coloquial:</strong> "conta", "boleto", "fatura"<br>
+                            <strong>Regime Técnico:</strong> "documento de cobrança"<br>
+                            <strong>Solução:</strong> Reconhecimento mútuo como expressões legítimas
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge critical-severity">Alta</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Negociação de legitimidades</small>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Poder de Nomeação</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Hierarquia Simbólica</td>
+                    <td style="text-align: center; vertical-align: middle;">"Quem define a estrutura conceitual dominante?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div style="font-size: 9pt; padding: 8pt; background: #f5f5f5; border-radius: 4px;">
+                            <strong>Regime Operacional:</strong> "problema com internet"<br>
+                            <strong>Regime Técnico:</strong> "falha na conexão banda larga"<br>
+                            <strong>Solução:</strong> Arquitetura que não hierarquiza, mas relaciona
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge major-severity">Média</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Desconstrução de hierarquias</small>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Contextualização</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Adequação de Regime</td>
+                    <td style="text-align: center; vertical-align: middle;">"Em que contexto cada regime é apropriado?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div style="font-size: 9pt; padding: 8pt; background: #f5f5f5; border-radius: 4px;">
+                            <strong>Contexto Atendimento:</strong> "minha net tá lenta" (coloquial)<br>
+                            <strong>Contexto Técnico:</strong> "baixa velocidade de conexão" (técnico)<br>
+                            <strong>Solução:</strong> Mapeamento contextualizado sem julgamento de valor
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge minor-severity">Baixa</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Pluralismo contextual</small>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Escalabilidade Crítica</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Expansão com Consciência</td>
+                    <td style="text-align: center; vertical-align: middle;">"Como a arquitetura cresce mantendo pluralismo?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div style="font-size: 9pt; padding: 8pt; background: #f5f5f5; border-radius: 4px;">
+                            <strong>Núcleo Inicial:</strong> 700 termos/regimes<br>
+                            <strong>Expansão:</strong> +2000 termos em 1 ano<br>
+                            <strong>Solução:</strong> Processo com revisão ética contínua
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge critical-severity">Alta</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Governança reflexiva</small>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="research-statement" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); border-left: 4px solid #4a5568;">
+            <strong>Contribuição metodológica</strong>: este protocolo representa a <strong>operacionalização da crítica dos sistemas simbólicos</strong>. Ao tratar cada decisão terminológica como uma decisão sobre regimes de poder, criei um sistema que não apenas organiza vocabulário, mas <strong>torna explícitas as políticas de significação</strong> embutidas em sistemas de classificação.
+        </div>
+    </section>
+
+    <!-- CASOS PARADIGMÁTICOS - ANTES / DURANTE / DEPOIS -->
+<section>
+    <h2>TRANSFORMAÇÃO ARQUITETÔNICA: REGIMES EM NEGOCIAÇÃO</h2>
+    
+<div class="click-hint">
+            <svg class="hand-icon" viewBox="0 0 24 24">
+                <path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z"/>
+            </svg>
+            Clique em cada etapa para ver a negociação de regimes
+        </div>
+
+    
+    <!-- ABAS DE FASE -->
+    <div class="phase-tabs">
+        <button class="phase-tab phase-before active" onclick="openPhase('before')">
+            DIAGNÓSTICO: <br> regimes em conflito
+        </button>
+        <button class="phase-tab phase-during" onclick="openPhase('during')">
+            ANÁLISE: <br> negociação simbólica
+        </button>
+        <button class="phase-tab phase-after" onclick="openPhase('after')">
+            ARQUITETURA: <br> infraestrutura plural
+        </button>
+    </div>
+
+    <!-- FASE 1 -->
+    <div id="phase-before" class="phase-content active"
+         style="border-color: var(--primary); background: var(--primary-light);">
+
+        <h4 style="color: var(--primary); margin-bottom: 10pt;">
+            Evidência da diversidade de regimes
+        </h4>
+
+        <p style="font-size: 9.5pt; text-align:justify;">
+            A análise revelou que uma mesma intenção comunicativa é expressa através de <strong>múltiplos regimes de significação legítimos</strong>, cada um com suas próprias regras de validade, criando incomensurabilidades sistêmicas.
+        </p>
+
+        <div class="two-columns">
+
+            <!-- Placeholder do print -->
+            <div class="image-container">
+                <div class="placeholder">
+                    <img src="https://github.com/alc-etimo/marcos/blob/main/apendice-4-1.png?raw=true" style="width:100%;height:auto;">
+                </div>
+                <div class="image-caption">
+                    Evidência de múltiplos regimes linguísticos <br> operando simultaneamente
+                </div>
+            </div>
+
+            <!-- Legenda -->
+            <blockquote class="cc-quote">
+                <p style="margin-top:60px; text-align:justify;">A intenção comunicativa permanece clara, mas a <strong>diversidade de regimes</strong> ("quero fatura", "me manda o boleto", "cadê minha conta") impede o reconhecimento mútuo. Cada expressão pertence a um <strong>regime diferente</strong> com regras próprias de validade.</p>
+            </blockquote>
+
+        </div>
+
+        <div class="example-block" style="text-align:justify;">
+            <strong>Dado-chave:</strong>
+            Mais de 50 expressões distintas do mesmo conceito, representando pelo menos 3 regimes de significação diferentes (coloquial, funcional, técnico), com baixa taxa de reconhecimento cruzado.
+        </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div id="phase-during" class="phase-content"
+         style="border-color: var(--accent); background: #f4f8fc;">
+
+        <h4 style="color: var(--accent); margin-bottom: 10pt;">
+            Negociação entre regimes
+        </h4>
+
+        <p style="font-size: 9.5pt; style="text-align:justify;">
+            A etapa analítica não buscou eliminar regimes, mas <strong>compreender suas lógicas internas</strong> e criar pontes de tradução entre eles.
+        </p>
+<br>
+        <ul class="compact-list">
+            <li>Identificação das regras de validação de cada regime</li>
+            <li>Mapeamento dos pontos de incomensurabilidade</li>
+            <li>Criação de estratégias de tradução entre regimes</li>
+        </ul>
+<br>
+        <div class="example-block" style="text-align:justify;">
+            <strong>Decisão metodológica:</strong>
+            Tratar cada regime como sistema simbólico legítimo, e não como "erro" a ser corrigido em direção a um padrão dominante.
+        </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div id="phase-after" class="phase-content"
+         style="border-color: var(--accent-light); background: #eef5ff;">
+
+        <h4 style="color: var(--primary); margin-bottom: 10pt;">
+            Arquitetura de reconhecimento mútuo
+        </h4>
+
+        <div class="two-columns">
+
+            <!-- Placeholder do print -->
+            <div class="image-container">
+<div class="click-hint" style="text-align:left; font-size:11px;">
+            <svg class="hand-icon" viewBox="0 0 24 24">
+                <path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z"/>
+            </svg>
+            Clique na imagem para ver detalhes
+        </div>
+                <div class="placeholder">
+                    <a href="https://github.com/alc-etimo/marcos/blob/main/apendice-4-1.png?raw=true" target="_blank"><img src="https://github.com/alc-etimo/marcos/blob/main/apendice-4-2.png?raw=true" style="width:100%;height:auto;">
+</a>                </div>
+                <div class="image-caption">
+                    Estrutura final que reconhece <br> múltiplos regimes como legítimos
+                </div>
+            </div>
+
+            <!-- Legenda -->
+            <blockquote class="cc-quote">
+                <p style="margin-top:30px; text-align:justify;">Todos os regimes observados são preservados como <strong>expressões legítimas</strong> dentro de uma arquitetura que reconhece sua validade contextual. Um <strong>ponto de ancoragem funcional</strong> ("Fatura") organiza a operação sem negar a legitimidade dos outros regimes.</p>
+            </blockquote>
+
+        </div>
+
+        <div class="vocabulary-entry">
+            <div class="entry-field">
+                <span class="entry-label">Ponto de ancoragem:</span>
+                Fatura (funcional)
+            </div>
+            <div class="entry-field">
+                <span class="entry-label" style="font-size:12px;">Regimes reconhecidos:</span>
+                Coloquial ("conta"), Funcional ("2ª via"), Técnico ("documento de cobrança")
+            </div>
+            <div class="entry-field">
+                <span class="entry-label">Função arquitetônica:</span>
+                Tradução entre regimes sem hierarquização
+            </div>
+        </div>
+<br>
+        <div class="example-block" style="text-align:justify;">
+            <strong>Resultado:</strong>
+            Redução das incomensurabilidades, aumento do reconhecimento mútuo entre regimes, e criação de infraestrutura simbólica pluralista.
+        </div>
+    </div>
+
+
+
+        <!-- ANÁLISE CRÍTICA (Presente em todas as fases) -->
+        <div class="analysis-box">
+            <h4>Análise Crítica: Classificação como Exercício de Poder</h4>
+            <ul class="analysis-list">
+                <li><span class="tech-term" data-tooltip="Criação de sistemas que sobrevivem a arquiteturas deficientes">Arquiteturas Emergentes Sob Pressão:</span> As 57 expressões não eram "erros", mas <span class="tech-term" data-tooltip="Sistemas simbólicos criados em resposta a exclusão">arquiteturas emergentes</span> desenvolvidas por operadores jovens criando suas próprias regras de significação. Cada variação representava uma <span class="tech-term" data-tooltip="Tentativa de criar validade dentro do sistema">estratégia de legitimação</span> dentro de sistemas que não reconheciam seus regimes.</li>
+                <li><span class="tech-term" data-tooltip="Linguagem como sistema de classificação com regras implícitas">Regime Operacional como Sistema Simbólico:</span> O call center desenvolveu seu próprio <span class="tech-term" data-tooltip="Conjunto de regras de significação">regime de significação</span> com gramática própria. Minha intervenção <span class="tech-term" data-tooltip="Tornar explícitas as regras implícitas">tornou explícitas as regras implícitas</span> transformando práticas emergentes em arquitetura reconhecida.</li>
+                <li><span class="tech-term" data-tooltip="Reconhecimento de múltiplos sistemas de validade">Ética do Pluralismo Simbólico:</span> A decisão de reconhecer todos os 57 regimes (vs. reduzir a um "padrão") teve <span class="tech-term" data-tooltip="Consequências políticas das escolhas arquitetônicas">implicações políticas profundas:</span> validou a inteligência simbólica dos operadores, respeitou a diversidade de regimes dos clientes, e criou sistemas que <span class="tech-term" data-tooltip="Funcionam através do reconhecimento, não da imposição">funcionam por reconhecimento mútuo.</span></li>
+                <li><span class="tech-term" data-tooltip="Transformação de práticas em infraestrutura legítima">Arquitetura como Tradução Ampliada:</span> Este caso exemplifica como a <span class="tech-term" data-tooltip="Criação de pontes entre sistemas simbólicos">tradução entre regimes</span> pode transformar <span class="tech-term" data-tooltip="Sistemas locais de significação">microarquiteturas emergentes</span> em <span class="tech-term" data-tooltip="Infraestrutura corporativa pluralista">macroestrutura negociada,</span> criando pontes entre regimes de significado locais e sistemas tecnológicos globais.</li>
+            </ul>
+            <center>
+                <span class="error-tag" data-tooltip="57 regimes não se reconhecem">INCOMENSURABILIDADE</span>
+                <span class="error-tag" data-tooltip="Regras próprias de validade">REGIMES DIVERGENTES</span>
+                <span class="error-tag" data-tooltip="Criação de sistemas paralelos">ARQUITETURAS EMERGENTES</span>
+                <span class="error-tag" data-tooltip="Não reconhecimento mútuo">EXCLUSÃO SIMBÓLICA</span><br>
+
+                <span class="error-tag-after">RECONHECIMENTO MÚTUO</span>
+                <span class="error-tag-after">TRADUÇÃO ENTRE REGIMES</span>
+                <span class="error-tag-after">ARQUITETURA NEGOCIADA</span>
+                <span class="error-tag-after">INCLUSÃO PLURALISTA</span>
+            </center>
+        </div>
+
+        <!-- OUTRAS APLICAÇÕES (COLAPSÁVEL) -->
+        <div class="other-applications">
+            <button class="toggle-applications" onclick="toggleApplications()">
+                <svg style="width: 16px; height: 16px; margin-right: 6pt;" viewBox="0 0 24 24">
+                    <path id="app-arrow" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6-6-6 6 1.41-1.41z" fill="currentColor"/>
+                </svg>
+                Ver outras aplicações da metodologia
+            </button>
+            
+            <div class="applications-grid" id="applicationsGrid">
+                <div class="application-card">
+                    <h4>Problema de Internet: Tradução de Regimes</h4>
+                    <div class="app-problem">
+                        <strong>Desafio:</strong> Cliente (coloquial): "internet tá uma porcaria", Operador (funcional): "queda de sinal", Sistema (técnico): "otimização 5G"
+                    </div>
+                    <div class="app-solution">
+                        <strong>Solução:</strong> Mapeamento entre regimes: coloquial → funcional → técnico <br> como tradução, não correção
+                    </div>
+                    <div class="app-impact">
+                        <strong>Impacto:</strong> Reconhecimento mútuo entre regimes, satisfação +24%, redução de incomensurabilidades
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <h4>Cancelamento: Unificação de Regimes</h4>
+                    <div class="app-problem">
+                        <strong>Desafio:</strong> Atendimento (funcional): "cancelar", Financeiro (jurídico): "rescisão", Sistema (técnico): "encerramento"
+                    </div>
+                    <div class="app-solution">
+                        <strong>Solução:</strong> Arquitetura que reconhece equivalência funcional <br>entre regimes distintos
+                    </div>
+                    <div class="app-impact">
+                        <strong>Impacto:</strong> 65% menos retrabalho, <br> experiência unificada, <br>comitê de regimes criado
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section>
+        <h2>RESULTADOS: QUALITATIVOS, QUANTITATIVOS E ARQUITETÔNICOS</h2>
+        
+        <div class="results-vertical">
+            <div class="qualitative-box">
+                <h3 style="border-left:3px; margin-top: 5px; #ffffff">Resultados Qualitativos</h3>
+                <ul>
+                    <li><strong>Pluralismo simbólico operacionalizado:</strong> Sistemas passaram a reconhecer múltiplos regimes de significação como legítimos, reduzindo exclusão causada pela imposição de um único regime "correto"</li>                    
+                    <li><strong>Empoderamento através do reconhecimento:</strong> Profissionais jovens ganharam validação para seus regimes emergentes, atuando com maior autoridade simbólica</li>
+                    <li><strong>Redução do esforço tradutório:</strong> Menor necessidade de "traduzir" entre regimes para ser compreendido pelos sistemas</li>
+                    <li><strong>Reconhecimento da equivalência funcional:</strong> A organização passou a ver diferentes regimes como expressões equivalentes da mesma intenção</li>
+                    <li><strong>Mudança epistemológica sobre erro:</strong> A divergência entre regimes deixou de ser interpretada como falha e passou a ser compreendida como pluralismo</li>
+                </ul>
+            </div>
+            
+            <div class="quantitative-box">
+                <h3 style="border-left:3px; margin-top: 5px; #ffffff">Resultados Quantitativos</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">700 → 2700+</div>
+                        <div class="metric-label">Regimes reconhecidos (núcleo → arquitetura completa)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">67% ↓</div>
+                        <div class="metric-label">Redução em incomensurabilidades sistêmicas</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">30.000</div>
+                        <div class="metric-label">Pessoas impactadas por reconhecimento de regimes</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">18% ↓</div>
+                        <div class="metric-label">Tempo médio de reconhecimento mútuo</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="impact-box">
+                <h3 style="border-left:3px; margin-top: 5px; #ffffff">Impacto Arquitetônico</h3>
+                <ul>
+                    <li><strong>Governança de regimes estabelecida:</strong> Desenvolvimento de modelo para mediação entre sistemas simbólicos em ambientes complexos</li>
+                    <li><strong>Criação do Comitê de Regimes:</strong> Estrutura formal para negociação entre diferentes sistemas de significação</li>
+                    <li><strong>Ponte entre teoria crítica e engenharia:</strong> Mediação bem-sucedida entre análise simbólica e arquitetura de sistemas</li>
+                    <li><strong>Consciência política sobre classificação:</strong> A organização passou a entender decisões arquitetônicas como decisões sobre inclusão/exclusão simbólica</li>
+                    <li><strong>Validação do pluralismo em escala:</strong> Demonstração de que o reconhecimento de múltiplos regimes é viável e eficaz em sistemas de grande porte</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGAÇÃO COM SISTEMAS SIMBÓLICOS -->
+    <section>
+        <h2>LIGAÇÃO COM TEORIA CRÍTICA DOS SISTEMAS SIMBÓLICOS</h2>
+        
+        <div class="research-statement" style="padding: 20pt;">
+            <p style="font-style: normal; margin-bottom: 15pt;">Este caso aplica conceitos de análise crítica de sistemas simbólicos:</p>
+            <div>
+                <ul style="margin-top: 0;">
+                    <li><strong>Arquiteturas Simbólicas → Infraestrutura de Poder:</strong> Tratei sistemas de classificação como infraestruturas que determinam o que pode ser dito, reconhecido e validado dentro de um sistema</li>
+                    <li><strong>Regimes de Significação → Limites do Legítimo:</strong> Identifiquei os conjuntos de regras que determinam quais expressões são consideradas válidas em diferentes contextos (coloquial, funcional, técnico)</li>
+                    <li><strong>Poder de Nomeação → Autoridade Simbólica:</strong> Analisei quem tem autoridade para definir "termos preferenciais" e como essa autoridade é distribuída (ou concentrada) na organização</li>                    
+                    <li><strong>Incomensurabilidade → Exclusão Sistêmica:</strong> Mapeei os pontos onde regimes divergentes criam falhas de reconhecimento que excluem grupos inteiros do sistema</li>                   
+                    <li><strong>Tradução entre Regimes → Mediação Política:</strong> Tratei cada decisão de mapeamento entre regimes como ato de mediação política entre diferentes formas de conhecimento e expressão</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- QUOTE BOX -->
+        <div class="quote-box">
+            <p>"Classificar não é organizar o mundo; é decidir quais partes do mundo serão reconhecidas como legítimas. Este estudo demonstra que a criação de arquiteturas semânticas em sistemas corporativos é um exercício de poder simbólico: cada decisão sobre 'termo preferencial' ou 'sinônimo' constitui um regime de significação que inclui alguns e exclui outros. A solução não está em encontrar o regime 'correto', mas em criar infraestruturas de tradução que reconheçam a legitimidade de múltiplos regimes."</p>
+            <div class="source">Insight Principal do Caso</div>
+        </div>
+        
+        <div class="research-statement">
+            <p><strong>Para pesquisa em sistemas simbólicos</strong>: este caso demonstra a necessidade de <strong>ampliar o alcance da crítica das arquiteturas de significado</strong>. Precisamos de métodos para transformar essas análises manuais em <strong>sistemas automatizados de governança pluralista</strong> que possam monitorar, ajustar e garantir o reconhecimento mútuo entre regimes em tempo real em qualquer organização global.</p>
+        </div>
+    </section>
+
+    <script>
+        // Função de Tabs para Casos Paradigmáticos
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Pipeline da Metodologia
+        let currentMethodStep = 1;
+        const totalMethodSteps = 5;
+        const methodPrevBtn = document.getElementById('methodPrevBtn');
+        const methodNextBtn = document.getElementById('methodNextBtn');
+        
+        function updateMethodPipeline() {
+            for (let i = 1; i <= totalMethodSteps; i++) {
+                const box = document.getElementById(`methodStep${i}`);
+                if (box) box.classList.remove('active');
+            }
+            
+            const currentBox = document.getElementById(`methodStep${currentMethodStep}`);
+            if (currentBox) currentBox.classList.add('active');
+            
+            if (methodPrevBtn) methodPrevBtn.disabled = currentMethodStep === 1;
+            if (methodNextBtn) methodNextBtn.disabled = currentMethodStep === totalMethodSteps;
+        }
+        
+        function moveMethodSlide(direction) {
+            const newStep = currentMethodStep + direction;
+            if (newStep >= 1 && newStep <= totalMethodSteps) {
+                currentMethodStep = newStep;
+                updateMethodPipeline();
+            }
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMethodPipeline();
+        });
+
+// Função para abrir fases (Antes/Durante/Depois)
+function openPhase(phaseName) {
+    // Remover active de todas as tabs
+    document.querySelectorAll('.phase-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Remover active de todos os conteúdos
+    document.querySelectorAll('.phase-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Ativar tab clicada
+    document.querySelector(`.phase-tab.phase-${phaseName}`).classList.add('active');
+    
+    // Mostrar conteúdo correspondente
+    document.getElementById(`phase-${phaseName}`).classList.add('active');
+}
+
+// Função para expandir/recolher outras aplicações
+function toggleApplications() {
+    const grid = document.getElementById('applicationsGrid');
+    const arrow = document.getElementById('app-arrow');
+    const button = document.querySelector('.toggle-applications');
+    
+    grid.classList.toggle('expanded');
+    
+    if (grid.classList.contains('expanded')) {
+        arrow.setAttribute('d', 'M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z');
+        button.innerHTML = `<svg style="width: 16px; height: 16px; margin-right: 6pt;" viewBox="0 0 24 24">
+            <path id="app-arrow" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+        </svg> Ocultar outras aplicações`;
+    } else {
+        arrow.setAttribute('d', 'M7.41 8.59L12 13.17l4.59-4.58L18 10l-6-6-6 6 1.41-1.41z');
+        button.innerHTML = `<svg style="width: 16px; height: 16px; margin-right: 6pt;" viewBox="0 0 24 24">
+            <path id="app-arrow" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6-6-6 6 1.41-1.41z" fill="currentColor"/>
+        </svg> Ver outras aplicações da metodologia`;
+    }
+}
+
+// Inicializar fase "antes" como ativa
+document.addEventListener('DOMContentLoaded', function() {
+    openPhase('before');
+});
+
+    </script>
+
+</body>
+</html>
