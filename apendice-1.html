@@ -1,0 +1,1175 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apêndice 1: Alucinações Éticas em IA</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --primary-light: #e8f0f8;
+            --accent: #2c5282;
+            --accent-light: #4a90e2;
+            --danger: #c53030;
+            --warning: #d69e2e;
+            --success: #2f855a;
+            --border: #cbd5e0;
+            --border-light: #e2e8f0;
+            --card: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            font-size: 10.5pt;
+        }
+        
+        .case-header {
+            text-align: center;
+            border-bottom: 4px solid #003366;
+            padding-bottom: 20pt;
+            margin-bottom: 25pt;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20pt;
+            border-radius: 8px;
+        }
+        
+        .case-number {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5pt;
+        }
+        
+        .case-header h1 {
+            font-size: 20pt;
+            color: #003366;
+            margin-bottom: 2pt;
+            text-transform: none;
+            letter-spacing: normal;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .case-subtitle {
+            font-size: 14pt;
+            color: #003366;
+            font-weight: 600;
+            margin-bottom: 15pt;
+            font-style: italic;
+        }
+        
+        .case-tags {
+            margin-top: 15pt;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6pt;
+        }
+        
+        .case-tag {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            padding: 4pt 10pt;
+            border-radius: 5px;
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-right: 0;
+            margin-bottom: 8pt;
+        }
+        
+        .research-statement {
+            background: #f9f9f9;
+            padding: 15pt;
+            border-left: 4px solid #003366;
+            font-style: italic;
+            margin-bottom: 20pt;
+            text-align: justify;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        section {
+            margin-bottom: 30pt;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 5pt;
+            margin-bottom: 15pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8pt;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #003366;
+            margin-top: 18pt;
+            margin-bottom: 10pt;
+            border-left: 5px solid #003366;
+            padding-left: 10pt;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .bias-card {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .bias-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bias-card h4 {
+            color: #003366;
+            font-size: 10pt;
+            margin-bottom: 8pt;
+            font-weight: bold;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20pt;
+            margin: 20pt 0;
+        }
+        
+        .problem-box, .solution-box {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;	    
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .problem-box h3, .solution-box h3 {
+            text-align: center;
+            margin-top: 3pt;
+            border: none;
+            padding-left: 0;
+            color: #003366;
+            margin-bottom: 12pt;
+            padding-bottom: 8pt;
+            border-bottom: 1px solid #003366;
+        }
+
+        .image-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8pt;
+            margin: 10pt 0;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .image-caption {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 4pt;
+            font-style: italic;
+        }
+
+        .analysis-box {
+            background: #fff; 
+            border: 1px solid var(--border);
+            padding: 12pt; 
+            border-radius: 6px; 
+            margin-top: 10pt;
+        }
+        
+        .analysis-box h4 { 
+            font-size: 10pt; 
+            text-transform: uppercase; 
+            color: var(--accent); 
+            margin-bottom: 8pt;
+            padding-bottom: 4pt;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        ul.analysis-list { 
+            margin-left: 0;
+            margin-top: 0;
+        }
+        
+        ul.analysis-list li { 
+            margin-bottom: 12pt;
+            font-size: 10pt; 
+            list-style: none;
+            padding-left: 15pt;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        ul.analysis-list li::before { 
+            content: '→'; 
+            position: absolute; 
+            left: 0; 
+            color: var(--primary); 
+        }
+
+        .error-tag {
+            display: inline-block;
+            background: #fff5f5;
+            color: var(--danger);
+            padding: 2pt 6pt;
+            border-radius: 4px;
+            font-size: 8pt;
+            font-weight: 600;
+            margin-top: 5pt;
+            margin-right: 4pt;
+            border: 1px solid #feb2b2;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: help;
+        }
+
+        .solution-tag {
+            display: inline-block;
+            background: #F2FFEE;
+            color: var(--accent);
+            padding: 2pt 5pt;
+            border-radius: 4px;
+            border: 1px solid #9ae6b4;
+            font-size: 8.5pt;
+            font-weight: 600;
+            margin-top: 5pt;
+            margin-right: 4pt;
+            transition: all 0.3s ease;
+            position: relative;            
+        }
+
+       /* ADICIONE ESTE CSS PARA OS TOOLTIPS FUNCIONAREM */
+.tech-term::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(44, 82, 130, 0.95);
+    color: white;
+    padding: 6pt 10pt;
+    border-radius: 4px;
+    font-size: 8.5pt;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-bottom: 6pt;
+    pointer-events: none;
+    max-width: 200px;
+    text-align: center;
+}
+
+.tech-term:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tooltips para error-tag e solution-tag */
+.error-tag::after,
+.solution-tag::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(197, 48, 48, 0.95);
+    color: white;
+    padding: 4pt 8pt;
+    border-radius: 4px;
+    font-size: 8pt;
+    white-space: normal;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-bottom: 6pt;
+    pointer-events: none;
+    max-width: 150px;
+    text-align: center;
+}
+
+.solution-tag::after {
+    background: rgba(47, 133, 90, 0.95);
+}
+
+.error-tag:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste para garantir que os tooltips não quebrem layout */
+.error-tag,
+.solution-tag {
+    position: relative;
+    display: inline-block;
+}
+
+/* Garantir que os tooltips não fiquem cortados */
+.analysis-box {
+    position: relative;
+    overflow: visible;
+}
+ .tech-term {
+            background: var(--primary-light);
+            color: var(--accent);
+            padding: 1pt 4pt;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 9.5pt;
+            cursor: help;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-rewrite {
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20pt 0;
+            background: var(--card);
+        }
+        
+        .tab-nav { 
+            display: flex; 
+            background: var(--primary-light); 
+            border-bottom: 1px solid var(--border); 
+        }
+        
+        .tab-btn { 
+            flex: 1; 
+            padding: 10pt; 
+            border: none; 
+            background: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+            color: var(--primary); 
+            transition: 0.3s; 
+            font-size: 10pt;
+        }
+        
+        .tab-btn.active { 
+            background: var(--primary); 
+            color: white; 
+        }
+        
+        .tab-content { 
+            padding: 15pt; 
+            display: none; 
+        }
+        
+        .tab-content.active { 
+            display: block; 
+        }
+        
+        .methodology-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20pt 0;
+            font-size: 9pt;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .methodology-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10pt;
+            border: 1px solid var(--primary-light);
+            vertical-align: middle;
+        }
+        
+        .methodology-table td {
+            padding: 8pt;
+            border: 1px solid var(--border-light);
+            vertical-align: top;
+            background: white;
+        }
+        
+        .methodology-table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+        
+        .severity-badge {
+            display: inline-block;
+            padding: 3pt 8pt;
+            border-radius: 12px;
+            font-size: 8.5pt;
+            font-weight: bold;
+            margin: 2pt;
+        }
+        
+        .critical-severity { background: #fed7d7; color: #7b341e; border: 1px solid #fc8181; }
+        .major-severity { background: #feebc8; color: #744210; border: 1px solid #f6ad55; }
+        
+        .pipeline-wrapper {
+            position: relative;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 30pt 50pt;
+            margin: 20pt 0;
+            overflow: hidden;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pipeline-container {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+        
+        .pipeline-box {
+            width: 280px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20pt;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: absolute;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.4s ease;
+        }
+        
+        .pipeline-box.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11pt;
+            font-weight: bold;
+            z-index: 3;
+        }
+        
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 51, 102, 0.2);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+        }
+        
+        .arrow-btn:hover {
+            background: rgba(0, 51, 102, 0.8);
+            opacity: 1;
+        }
+        
+        .arrow-prev {
+            left: 10px;
+        }
+        
+        .arrow-next {
+            right: 10px;
+        }
+
+        .results-vertical {
+            display: block;
+            margin: 20pt 0;
+        }
+
+        .results-vertical > div {
+            margin-bottom: 20pt;
+        }
+
+        .qualitative-box, .quantitative-box, .impact-box {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            width: 100%;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10pt;
+            margin-top: 10pt;
+        }
+        
+        .metric-card {
+            background: #f0f7ff;
+            border: 1px solid #003366;
+            border-radius: 6px;
+            padding: 10pt;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 4pt;
+        }
+        
+        .metric-label {
+            font-size: 9pt;
+            color: #666;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #003366, hsl(215, 50%, 35%));
+            color: white;
+            padding: 1.75rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(31, 79, 176, 0.2);
+            margin: 1.5rem 0;
+        }
+        
+        .quote-box p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            font-style: italic;
+            opacity: 0.95;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .quote-box .source {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-style: normal;
+        }
+        
+        ul {
+            margin-left: 20pt;
+            margin-top: 8pt;
+        }
+        
+        li {
+            margin-bottom: 8pt;
+            text-align: justify;
+        }
+        
+        strong {
+            color: #003366;
+        }
+
+        .img-placeholder {
+            
+            background-size: 20px 20px;
+            padding: 20pt 10pt;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            border-radius: 8px;
+            margin: 10pt 0;
+        }
+        
+        .img-placeholder strong {
+            display: block;
+            color: #333;
+            font-size: 11pt;
+            margin-bottom: 8pt;
+        }
+        
+        @media print {
+            body { padding: 5mm; }
+        }
+        
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pipeline-wrapper {
+                padding: 20pt 40pt;
+            }
+            
+            .pipeline-box {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="case-header">
+        <div class="case-number">APÊNDICE 1 — ANÁLISE APLICADA</div>
+        <h1>Alucinações éticas em IA:</h1>
+        <div class="case-subtitle">detecção de incoerência narrativa e colapso simbólico <br> em sistemas de linguagem automatizados</div>
+        <div class="case-tags">
+            <span class="case-tag">Incoerência Narrativa</span>
+            <span class="case-tag">Colapso Simbólico</span>
+            <span class="case-tag">Malfuncionamento Discursivo</span>
+            <span class="case-tag">Crítica da Técnica</span>
+        </div>
+    </div>
+
+    <div class="research-statement">
+        <strong>Enquadramento</strong>: esta análise surge de um <strong>contexto de pesquisa aplicada</strong> em linguística crítica e sistemas técnicos. O fenômeno das "alucinações éticas" em IA não é apenas uma falha técnica, mas uma <strong>ruptura narrativa e simbólica</strong> que expõe o modo como sistemas automatizados reconfiguram relações de poder, apropriam trabalho invisível e produzem discurso descontextualizado. O caso investiga como <strong>falhas técnicas se convertem em problemas éticos sistêmicos</strong> quando em contextos industriais.
+    </div>
+
+    <section>
+        <h2>O PROBLEMA: ALUCINAÇÕES COMO RUPTURA NARRATIVA EM SISTEMAS TÉCNICOS</h2>
+        <p style="text-align: justify;">
+            As <strong>alucinações em sistemas de IA de linguagem</strong> transcendem o erro técnico isolado quando integradas a <strong>fluxos industriais de produção de discurso</strong>. Em escala, sistemas automatizados operam com autoridade e opacidade, convertendo erros semanticamente plausíveis em informação aparentemente legítima – uma <strong>ruptura narrativa institucionalizada</strong>.</p>
+        <br>
+        <p style="text-align: justify;">Diferentemente de erros humanos, as alucinações algorítmicas produzem texto <strong>formalmente bem construído, porém semanticamente desancorado</strong>, frequentemente reutilizando padrões discursivos do ecossistema digital fora de contexto. Quando veiculadas por plataformas de autoridade, como grandes plataformas de <i>streaming</i>, essas produções atuam como instâncias de <strong>malfuncionamento discursivo sistêmico</strong>, introduzindo ruído semântico e distorções interpretativas sem transparência – um <strong>problema de coerência narrativa em escala técnica</strong>.</p>
+        
+        <br>
+        <div class="cards-grid">
+            <div class="bias-card">
+                <h4>Alucinação como preenchimento automático</h4>
+                <p>Sistemas automatizados produzem texto mesmo diante de incerteza, optando por preencher lacunas em vez de sinalizar ausência.</p><br>
+                <p>Gera discurso linguisticamente plausível mas semanticamente vazio, deslocando o erro pontual para a produção sistemática de <strong>ruído narrativo</strong>.</p>
+            </div>
+            
+            <div class="bias-card">
+                <h4>Fluência sem ancoragem contextual</h4>
+                <p>Caracteriza-se pela criação de texto <br> sem correspondência <br> no sinal de entrada.</p><br><br>
+                <p>A correção formal mascara a ausência de lastro semântico, reforçando <strong>autoridade aparente</strong> e dificultando identificação pelo receptor.</p>
+            </div>
+
+            <div class="bias-card">
+                <h4>Dilema ético distribuído</h4>
+                <p>O efeito não se limita à camada técnica; emerge da articulação entre modelos automatizados, decisões de escala e práticas de recepção.</p><br><br>
+                <p>O dilema está no fato de que <strong>escolhas técnicas produzem efeitos interpretativos reais</strong>, sem mecanismos claros de responsabilização.</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div class="img-placeholder">
+                <img src="https://github.com/alc-etimo/marcos/blob/main/AI-desesperada.png?raw=true" style="width:100%;height:auto;"/><br>
+                            </div>
+            <div class="image-caption">Interface com legenda alucinada gerada por sistema automatizado, demonstrando <strong>colapso simbólico</strong> entre entrada e saída<br> Não há correspondência com áudio, vídeo ou contexto
+</div>
+        </div>
+        
+        <p style="text-align: justify; margin-top: 15pt;">
+            <strong>A IA não criou este problema – ela o automatizou e expandiu.</strong> Sistemas de linguagem estão sendo treinados em conjuntos de dados que incluem conteúdo protegido, trabalho não remunerado e marcas culturais, criando <strong>violações éticas sistêmicas</strong> que reproduzem em escala industrial as injustiças que a análise crítica do discurso e os estudos da linguagem nos ensinam a questionar.</p>
+    </section>
+
+    <section>
+        <h2>FUNDAMENTAÇÃO TEÓRICA: LINGUAGEM, PODER E SISTEMAS TÉCNICOS</h2>
+        
+        <p style="text-align: justify;">
+            Aplicação de conceitos de análise crítica para criar um <strong>sistema de auditoria ética para <i>outputs</i> de sistemas automatizados</strong>:
+        </p>
+        
+        <div class="two-columns">
+            <div class="problem-box">
+                <h3>Conceitos Teóricos Aplicados</h3>
+                <ul>
+                    <li><span class="tech-term" data-tooltip="Invisibilidade do agente linguístico">Invisibilidade do Trabalho Linguístico:</span> Autoria apagada na produção algorítmica</li>
+                    <li><span class="tech-term" data-tooltip="Relações de poder na mediação linguística">Relações de Poder Técnico:</span> Sistemas vs. produtores independentes/voluntários</li>
+                    <li><span class="tech-term" data-tooltip="Violação de propriedade intelectual">Direitos Autorais e Normas Técnicas:</span> Apropriação sistêmica de conteúdo</li>
+                    <li><span class="tech-term" data-tooltip="Discurso deslocado de seu contexto original">Adequação Pragmática e Contextual:</span> Conteúdo recontextualizado erroneamente</li>
+                    <li><span class="tech-term" data-tooltip="Responsabilidade na curadoria de dados">Ética na Curadoria de Dados:</span> Diligência na seleção de conjuntos de treino</li>
+                </ul>
+            </div>
+            
+            <div class="solution-box">
+                <h3>Aplicação Prática em Sistemas</h3>
+                <ul>
+                    <li><strong>Detecção sistemática</strong> de conteúdo apropriado indevidamente</li>
+                    <li><strong>Classificação tipológica</strong> de violações ético-legais</li>
+                    <li><strong>Protocolos de auditoria</strong> para dados de treino de IA</li>
+                    <li><strong>Modelos de compensação</strong> retroativa para produtores linguísticos</li>
+                    <li><strong>Sistema de atribuição</strong> e rastreabilidade para dados linguísticos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="research-statement" style="background: #e3f2fd; border-left-color: #2c5282;">
+        <strong>Hipótese central</strong>: sistemas de IA para processamento de linguagem estão reproduzindo – e amplificando – violações éticas históricas da mediação linguística: apropriação de trabalho não remunerado, violação de direitos autorais e apagamento da autoria, exigindo não apenas ajustes técnicos, mas uma <strong>reforma estrutural baseada em princípios de análise crítica</strong>.
+    </div>
+
+    <section>
+        <h2>METODOLOGIA: PROTOCOLO DE AUDITORIA ÉTICA <br> PARA <i>OUTPUTS</i> AUTOMATIZADOS</h2>
+        
+        <div class="research-statement" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 4px solid #2c5282; padding: 20pt; border-radius: 0 8px 8px 0;">
+            <strong>Inovação metodológica</strong>: transformei princípios teóricos de ética linguística em um <strong>protocolo de auditoria replicável para outputs de sistemas automatizados</strong>, que não só detecta violações, mas <strong>categoriza seu tipo, gravidade e origem estrutural</strong>, fornecendo dados para reformular políticas de curadoria de dados e compensação.
+        </div>
+        
+        <h3>1. Protocolo de Análise em 5 Etapas</h3>
+        
+        <div class="pipeline-wrapper">
+            <button class="arrow-btn arrow-prev" onclick="moveMethodSlide(-1)" id="methodPrevBtn" disabled>❮</button>
+            
+            <div class="pipeline-container" id="methodPipeline">
+                <div class="pipeline-box active" id="methodStep1">
+                    <div class="step-number">1</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Triagem de Suspeitas</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Identificação de conteúdo com marcas comerciais, atribuições, <i>slogans</i> ou padrões linguísticos atípicos
+                    </p>
+                </div>
+                
+                <div class="pipeline-box" id="methodStep2">
+                    <div class="step-number">2</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Investigação de Origem</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Rastreamento da possível fonte: plataformas colaborativas, sites corporativos, comunidades
+                    </p>
+                </div>
+                
+                <div class="pipeline-box" id="methodStep3">
+                    <div class="step-number">3</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Classificação Ético-Legal</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Categorização do tipo de violação: direitos autorais, trabalho não remunerado, marca comercial etc.
+                    </p>
+                </div>
+                
+                <div class="pipeline-box" id="methodStep4">
+                    <div class="step-number">4</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Avaliação de Impacto</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Análise do dano: <br> financeiro, reputacional, <br> desincentivo à produção colaborativa.
+                    </p>
+                </div>
+                
+                <div class="pipeline-box" id="methodStep5">
+                    <div class="step-number">5</div>
+                    <strong style="font-size: 11pt; color: var(--primary);">Documentação e Reivindicação</strong>
+                    <p style="font-size: 9.5pt; margin-top: 8pt; color: #555;">
+                        Relatório estruturado <br> para equipes técnicas, <br>legais e de produto
+                    </p>
+                </div>
+            </div>
+            
+            <button class="arrow-btn arrow-next" onclick="moveMethodSlide(1)" id="methodNextBtn">❯</button>
+        </div>
+        
+        <h3>2. Sistema de Classificação: Tipos de Violação Ético-Legal</h3>
+        
+        <table class="methodology-table compact">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Tipo de Violação</th>
+                    <th style="width: 15%;">Conceito Teórico</th>
+                    <th style="width: 20%;">Operacionalização</th>
+                    <th style="width: 40%;">Exemplo</th>
+                    <th style="width: 10%;">Gravidade & Impacto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Trabalho Não Remunerado</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Invisibilidade do Trabalho Linguístico</td>
+                    <td style="text-align: center; vertical-align: middle;">"O conteúdo foi produzido por trabalho voluntário ou colaborativo não remunerado?"</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <div class="img-placeholder">
+                            <img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao.png?raw=true" style="width:100%;height:auto;"/>                           
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge critical-severity">Crítico</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Exploração sistêmica</small>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Apropriação Cultural</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Poder Linguístico Técnico</td>
+                    <td style="text-align: center; vertical-align: middle;">"Slogans ou padrões linguísticos de comunidades específicas foram cooptados sem contexto?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div class="img-placeholder" style="padding: 3pt; margin: 0;">
+                            <img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao-2.png?raw=true" style="width:100%;height:auto;"/>   
+                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge major-severity">Major</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Diluição cultural</small>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;"><strong>Direitos Autorais</strong></td>
+                    <td style="text-align: center; vertical-align: middle;">Propriedade Intelectual Técnica</td>
+                    <td style="text-align: center; vertical-align: middle;">"Conteúdo protegido por direitos autorais foi usado sem permissão ou atribuição?"</td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <div class="img-placeholder" style="padding: 5pt; margin: 0;">
+                           <img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao-3.png?raw=true" style="width:100%;height:auto;"/>                        </div>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; padding: 5pt;">
+                        <span class="severity-badge critical-severity">Crítico</span><br><br>
+                        <small style="font-size: 7.5pt; color: #666;">Risco legal direto</small>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="research-statement" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); border-left: 4px solid #2c5282;">
+            <strong>Contribuição metodológica</strong>: este protocolo representa uma <strong>síntese entre ética linguística e auditoria técnica de sistemas automatizados</strong>. Ao vincular cada violação a um conceito teórico específico, criei um sistema que não apenas detecta problemas, mas <strong>explica suas raízes estruturais</strong>, permitindo que equipes técnicas e éticas entendam <em>por que</em> determinadas práticas são problemáticas e <em>como</em> reformular sistemas para evitar violações sistêmicas.
+        </div>
+    </section>
+
+    <section>
+        <h2>CASOS PARADIGMÁTICOS: ANÁLISE DE INCOERÊNCIA NARRATIVA</h2>
+
+        <div class="interactive-rewrite">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'case1')">CASO 1: Plataforma Colaborativa<br>O Trabalho Invisível Explorado</button>
+                <button class="tab-btn" onclick="openTab(event, 'case2')">CASO 2: "Inscreva-se"<br>Padrão Cultural Descontextualizado</button>
+                <button class="tab-btn" onclick="openTab(event, 'case3')">CASO 3: Agência Extinta<br>O Fantasma <br> Corporativo</button>
+            </div>
+
+            <!-- CASO 1 -->
+            <div id="case1" class="tab-content active">
+                <div style="margin-bottom: 20pt; padding: 12pt; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #003366; text-align:justify;">
+                    <strong>Contexto:</strong> Plataforma de legendagem colaborativa e voluntária, focada em conteúdo educacional aberto. Modelo baseado em produtores linguísticos voluntários que criam conteúdo por paixão, sem remuneração.
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15pt;">
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--danger); text-align:center;">Alucinação do Sistema</h4>
+                        <div style="background: #fff5f5; padding: 15pt;  border-radius: 4px; border: 1px solid #feb2b2;">                            
+                            <div class="img-placeholder" style="height:205px;margin-top:50px;">
+                                <img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao.png?raw=true" style="width:100%;height:auto;"/>                           </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--success); text-align:center;">Realidade da Plataforma</h4>
+                        <div style="background: #f0fff4; padding: 15pt; border-radius: 4px; border: 1px solid #9ae6b4;">
+                            <strong>Plataforma Colaborativa:</strong><br><br>
+                            • Foco em conteúdo aberto (educacional, científico)<br>
+                            • <span class="tech-term" data-tooltip="Modelo baseado em voluntariado">Produtores voluntários,</span> sem remuneração<br>
+                            • Licenças abertas para conteúdo<br>
+                            • <span class="tech-term" data-tooltip="Exploração de trabalho não remunerado">Parcerias corporativas controversas</span><br><br>
+                            
+                           <p style="text-align:justify;"> <strong>Ironia:</strong> plataforma criada para democratizar o acesso à informação sendo usada para treinar sistemas que podem substituir os próprios voluntários.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-box">
+                    <h4>Análise da Apropriação</h4>
+                    <ul class="analysis-list">
+                        <li><span class="tech-term" data-tooltip="Trabalho linguístico invisibilizado">Exploração de Trabalho Invisível:</span> O sistema "alucinou" a atribuição, revelando uma verdade mais profunda: sistemas estão sendo treinados em <span class="tech-term" data-tooltip="Trabalho não é feito por remuneração">trabalho voluntário não remunerado.</span></li>
+                        <li><span class="tech-term" data-tooltip="Violação do contrato social implícito">Quebra do Contrato Social:</span> A plataforma foi criada com a promessa de <span class="tech-term" data-tooltip="Conteúdo acessível a todos">"conhecimento aberto para todos",</span> não "trabalho aberto para corporações".</li>
+                        <li><span class="tech-term" data-tooltip="Atribuição gerada sem garantia de origem">Falsa Rastreabilidade:</span> O sistema pode estar gerando atribuição como "alucinação", sem que o conteúdo tenha de fato vindo da plataforma.</li>
+                        <li><span class="tech-term" data-tooltip="Desincentivo à colaboração voluntária">Desincentivo Econômico Sistêmico:</span> Se voluntários sabem que seu trabalho alimentará algoritmos de corporações, por que continuariam contribuindo?</li>
+                    </ul>
+                    <center>
+                        <span class="error-tag" data-tooltip="Trabalho voluntário usado para treinar sistemas comerciais" style="font-size:7.5pt;">EXPLORAÇÃO DE VOLUNTARIADO</span>
+                        <span class="error-tag" data-tooltip="Violação do propósito original" style="font-size:7.5pt;">QUEBRA DE CONTRATO SOCIAL</span>
+                        <span class="error-tag" data-tooltip="Atribuição não correspondente à origem" style="font-size:7.5pt;">FALSA RASTREABILIDADE</span>
+                        <span class="error-tag" data-tooltip="Por que colaborar?" style="font-size:7.5pt;">DESINCENTIVO SISTÊMICO</span><br>
+
+                        <span class="solution-tag">ATRIBUIÇÃO CLARA</span>
+                        <span class="solution-tag">COMPENSAÇÃO RETROATIVA</span>
+                        <span class="solution-tag">CONTRATOS ÉTICOS</span>
+                        <span class="solution-tag">TRANSPARÊNCIA EM DADOS</span>
+                    </center>
+                </div>
+            </div>
+
+            <!-- CASO 2 -->
+            <div id="case2" class="tab-content">
+                <div style="margin-bottom: 20pt; padding: 12pt; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #003366;">
+                    <strong>Contexto:</strong> "Inscreva-se no canal e ative o sino" é um padrão linguístico universal da cultura digital, parte fundamental do modelo de engajamento de criadores independentes.
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15pt;">
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--danger); text-align:center;">Alucinação do Sistema</h4>
+                        <div style="background: #fff5f5; padding: 15pt; margin-bottom: 15pt; border-radius: 4px; border: 1px solid #feb2b2; height:290px;">                            
+                            <div class="img-placeholder">
+                                <img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao-2.png?raw=true" style="width:100%;height:auto;margin-top:15px;"/>                           </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--success); text-align:center;">Origem Cultural</h4>
+                        <div style="background: #f0fff4; padding: 15pt; border-radius: 4px; border: 1px solid #9ae6b4;">
+                            <strong>Cultura Digital:</strong><br><br>
+                            • Padrão universal para engajamento<br>
+                            • Parte do <span class="tech-term" data-tooltip="Baseado em visualizações e inscrições">modelo econômico</span> de criadores<br>
+                            • Reconhecimento instantâneo na comunidade<br>
+                            • <span class="tech-term" data-tooltip="Estratégia para aumentar alcance">Estratégia de crescimento</span> orgânico<br><br>
+                            
+                        <p style="text-align:justify;">    <strong>Dissonância</strong>: em contextos de assinatura, esse chamado não faz sentido – é conteúdo <strong>deslocado do habitat discursivo original</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-box">
+                    <h4>Análise da Descontextualização</h4>
+                    <ul class="analysis-list">
+                        <li><span class="tech-term" data-tooltip="Linguagem sem contexto">Apropriação Cultural Descontextualizada:</span> O sistema identificou um <span class="tech-term" data-tooltip="Padrão recorrente">padrão linguístico</span> e o replicou sem compreender seu contexto cultural e funcional.</li>
+                        <li><span class="tech-term" data-tooltip="Estratégias de diferentes modelos econômicos">Confusão de Modelos Econômicos:</span> YouTube (ads e engajamento) vs. streaming (assinaturas). O padrão pertence a uma <span class="tech-term" data-tooltip="Lógica econômica específica">lógica específica</span> não aplicável.</li>
+                        <li><span class="tech-term" data-tooltip="Identidade da plataforma diluída">Diluição de Identidade Discursiva:</span> Ao reproduzir frases características de outra plataforma, o sistema cria <span class="tech-term" data-tooltip="Confusão contextual">confusão identitária</span> para o usuário.</li>
+                        <li><span class="tech-term" data-tooltip="Treinamento em dados sem curadoria">Evidência de Dados Contaminados:</span> Sugere treinamento em <span class="tech-term" data-tooltip="Dados sem filtragem adequada">dados sem filtragem contextual.</span></li>
+                    </ul>
+                    <center>
+                        <span class="error-tag" data-tooltip="Padrão deslocado de contexto">APROPRIAÇÃO CULTURAL</span>
+                        <span class="error-tag" data-tooltip="Confusão entre modelos econômicos">DISSONÂNCIA COMERCIAL</span>
+                        <span class="error-tag" data-tooltip="Identidade discursiva diluída">CONFUSÃO DE CONTEXTO</span>
+                        <span class="error-tag" data-tooltip="Treinamento problemático">DADO CONTAMINADO</span><br>
+
+                        <span class="solution-tag">CURADORIA DE DADOS</span>
+                        <span class="solution-tag">CONTEXTUALIZAÇÃO CULTURAL</span>
+                        <span class="solution-tag">IDENTIDADE DISCURSIVA</span>
+                        <span class="solution-tag">FILTROS CONTEXTUAIS</span>
+                    </center>
+                </div>
+            </div>
+
+            <!-- CASO 3 -->
+            <div id="case3" class="tab-content">
+                <div style="margin-bottom: 20pt; padding: 12pt; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #003366;">
+                    <p style="text-align:justify;"><strong>Contexto:</strong> Agência de serviços linguísticos (2010-2022). Domínio expirado, empresa possivelmente extinta. Portfólio profissional com conteúdo protegido por direitos autorais.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15pt;">
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--danger); text-align:center;">Alucinação do Sistema</h4>
+                        <div style="background: #fff5f5; border-radius: 4px; border: 1px solid #feb2b2; height:155px;">                            
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/streaming-alucinacao-3.png?raw=true" style="width:100%;height:auto;padding-bottom: 50px;"/>                         </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 9pt; color: var(--success); text-align:center;">Realidade da Empresa</h4>
+                        <div style="background: #f0fff4; padding: 15pt; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid #9ae6b4;">
+                            <div style="text-align: left;">
+                                <strong>Agência de Serviços Linguísticos:</strong><br><br>
+                                • Período de atividade: ~2010-2022<br>
+                                • Domínio expirado<br>
+                                • <span class="tech-term" data-tooltip="Copywriting protegido por direitos autorais">Conteúdo protegido</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-box">
+                    <h4>Análise do Fantasma Corporativo</h4>
+                    <ul class="analysis-list">
+                        <li><span class="tech-term" data-tooltip="Copywriting tem proteção autoral">Violação de Direitos Autorais Corporativos:</span> Descrições de serviços e portfólio são <span class="tech-term" data-tooltip="Proteção legal">propriedade intelectual protegida.</span></li>
+                        <li><span class="tech-term" data-tooltip="Empresa extinta, direitos persistem">Fantasma Jurídico:</span> Mesmo com domínio expirado, os <span class="tech-term" data-tooltip="Por décadas">direitos autorais persistem.</span></li>
+                        <li><span class="tech-term" data-tooltip="Conteúdo adquirido automaticamente"><i>Scraping</i> Indiscriminado:</span> Evidência de que conjuntos de dados incluem <span class="tech-term" data-tooltip="Conteúdo raspado da web">conteúdo raspado</span> sem filtro de direitos.</li>
+                        <li><span class="tech-term" data-tooltip="Modelo treinado em conteúdo que substitui">Canibalismo Algorítmico:</span> Conteúdo de profissionais linguísticos usado para treinar sistemas que ameaçam... profissionais linguísticos.</li>
+                    </ul>
+                    <center>
+                        <span class="error-tag" data-tooltip="Conteúdo usado sem permissão">DIREITOS AUTORAIS VIOLADOS</span>
+                        <span class="error-tag" data-tooltip="Empresa extinta mas direitos persistem">FANTASMA JURÍDICO</span>
+                        <span class="error-tag" data-tooltip="Raspagem de dados sem filtro"><i>SCRAPING</i> INDISCRIMINADO</span>
+                        <span class="error-tag" data-tooltip="Humano ≠ máquina">CANIBALISMO ALGORÍTMICO</span><br>
+                        
+                        <span class="solution-tag">PERMISSÕES EXPLÍCITAS</span>
+                        <span class="solution-tag">COMPENSAÇÃO AUTORAL</span>
+                        <span class="solution-tag">FILTROS DE DIREITOS</span>
+                        <span class="solution-tag">ÉTICA NOS DADOS</span>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>RESULTADOS E IMPLICAÇÕES PARA SISTEMAS TÉCNICOS</h2>
+        
+        <div class="results-vertical">
+            <div class="qualitative-box">
+                <h3 style="border-left:3px; margin-top: 5px;">Resultados Qualitativos</h3>
+                <ul>
+                    <li><strong>Taxonomia de categorias</strong> de violação ético-legal em sistemas automatizados, vinculadas a conceitos de análise crítica</li>                    
+                    <li><strong>Protocolo de auditoria replicável</strong> que transforma princípios éticos em critérios de análise concretos</li>
+                    <li><strong>Detecção de padrões sistêmicos</strong> de apropriação: trabalho voluntário, cultura de comunidades, propriedade intelectual</li>
+                    <li><strong>Evidência de práticas questionáveis</strong> na curadoria de conjuntos de dados de treino</li>
+                    <li><strong>Articulação do "canibalismo algorítmico"</strong> como fenômeno ético específico</li>
+                </ul>
+            </div>
+            
+            <div class="quantitative-box">
+                <h3 style="border-left:3px; margin-top: 5px;">Resultados Quantitativos</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Categorias principais de violação<br>ética identificadas</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Casos paradigmáticos cobertos<br>pelo protocolo de auditoria</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Camadas de análise ética<br>(individual, corporativa, sistêmica)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Etapas do protocolo<br>de auditoria desenvolvido</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="impact-box">
+                <h3 style="border-left:3px; margin-top: 5px;">Implicações para Sistemas Técnicos</h3>
+                <ul>
+                    <li><strong>Estrutura para políticas de curadoria de dados:</strong> Princípios éticos para seleção e uso de dados linguísticos em treinamento de sistemas</li>
+                    <li><strong>Sistema de compensação retroativa:</strong> Modelo aplicado a produtores linguísticos e criadores de conteúdo</li>
+                    <li><strong>Protocolos de atribuição e rastreabilidade:</strong> Sistema para marcar origem de dados linguísticos em cadeias de produção automatizadas</li>
+                    <li><strong>Reivindicação por licenciamento ético:</strong> Proposta de licenciamento específico para conteúdo linguístico usado em IA</li>
+                    <li><strong>Integração de verificações éticas no fluxo técnico:</strong> Inclusão de auditoria ética em desenvolvimento e avaliação de sistemas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>LIGAÇÃO COM ANÁLISE CRÍTICA DE SISTEMAS TÉCNICOS</h2>
+        
+        <div class="research-statement" style="padding: 20pt;">
+            <p style="font-style: normal; margin-bottom: 15pt;">Este caso aplica conceitos de análise crítica a sistemas técnicos:</p>
+            <div>
+                <ul style="margin-top: 0;">
+                    <li><strong>Invisibilidade e Poder Técnico</strong>: apropriação de trabalho voluntário e canibalismo algorítmico são manifestações contemporâneas da invisibilidade do produtor linguístico, agora escalada por sistemas automatizados.</li>                        
+                    <li><strong>Adequação Cultural e Contextual</strong>: o caso "Inscreva-se" demonstra falha na adequação pragmática – sistemas reproduzem padrões linguísticos sem compreender contexto cultural e funcional.</li>
+                    <li><strong>Ética Profissional e Direitos Autorais</strong>: a violação de direitos autorais corporativos e a apropriação de trabalho profissional conectam-se a discussões sobre ética e propriedade intelectual em mediação linguística.</li>                    
+                    <li><strong>Confiança e Responsabilidade Técnica</strong>: em que bases éticas podemos confiar sistemas que demonstram apropriação indevida de conteúdo alheio?</li>
+                    <li><strong>Pesquisa Aplicada com Impacto</strong>: a teoria crítica da linguagem pode – e deve – informar o desenvolvimento e a regulamentação de tecnologias linguísticas emergentes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p>"A ética na mediação linguística nunca foi apenas sobre palavras, mas sobre relações de poder. Hoje, essas relações se reconfiguram na escala algorítmica: quem tem o direito de usar qual conteúdo para treinar quais sistemas, e com quais consequências para aqueles cujo trabalho é apropriado."</p>
+            <div class="source">INSIGHT PRINCIPAL DA ANÁLISE</div>
+        </div>
+        
+        <div class="research-statement">
+            <p><strong>Relevância para pesquisa em sistemas técnicos:</strong> Este caso demonstra a necessidade de profissionais que <strong>compreendem tanto a teoria crítica quanto os sistemas técnicos</strong>, capazes de identificar problemas éticos estruturais em tecnologias linguísticas e propor reformas baseadas em princípios sólidos. A análise crítica fornece a base ética; a experiência técnica mostra a urgência do problema; metodologias robustas fornecem as ferramentas para desenvolver soluções abrangentes.</p>
+        </div>
+    </section>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        let currentMethodStep = 1;
+        const totalMethodSteps = 5;
+        const methodPrevBtn = document.getElementById('methodPrevBtn');
+        const methodNextBtn = document.getElementById('methodNextBtn');
+        
+        function updateMethodPipeline() {
+            for (let i = 1; i <= totalMethodSteps; i++) {
+                const box = document.getElementById(`methodStep${i}`);
+                if (box) box.classList.remove('active');
+            }
+            
+            const currentBox = document.getElementById(`methodStep${currentMethodStep}`);
+            if (currentBox) currentBox.classList.add('active');
+            
+            if (methodPrevBtn) methodPrevBtn.disabled = currentMethodStep === 1;
+            if (methodNextBtn) methodNextBtn.disabled = currentMethodStep === totalMethodSteps;
+        }
+        
+        function moveMethodSlide(direction) {
+            const newStep = currentMethodStep + direction;
+            if (newStep >= 1 && newStep <= totalMethodSteps) {
+                currentMethodStep = newStep;
+                updateMethodPipeline();
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMethodPipeline();
+            openTab({currentTarget: document.querySelector('.tab-btn.active')}, 'case1');
+        });
+    
+
+
+// Adicione este código ao final do script existente
+document.addEventListener('DOMContentLoaded', function() {
+    // Garante que tooltips funcionem mesmo após mudança de tabs
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Pequeno delay para garantir que o conteúdo da tab foi carregado
+            setTimeout(() => {
+                // Força a atualização dos tooltips
+                const techTerms = document.querySelectorAll('.tech-term');
+                techTerms.forEach(term => {
+                    // Reatribui eventos (só por precaução)
+                    term.style.position = 'relative';
+                });
+            }, 100);
+        });
+    });
+});
+
+
+</script>
+
+</body>
+</html>
