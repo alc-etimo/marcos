@@ -1,0 +1,2080 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiê de Candidatura ao EMLDS | Para o Prof. Marcos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            font-size: 10.5pt;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #003366;
+            padding-bottom: 15pt;
+            margin-bottom: 25pt;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20pt;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5pt;
+        }
+        
+        .header .tagline {
+            font-size: 12pt;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 10pt;
+        }
+        
+        .header .context {
+            font-size: 10pt;
+            color: #666;
+            font-style: italic;
+        }
+        
+        section {
+            margin-bottom: 25pt;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 5pt;
+            margin-bottom: 15pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8pt;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #003366;
+            margin-top: 18pt;
+            margin-bottom: 10pt;
+            border-left: 5px solid #003366;
+            padding-left: 10pt;
+        }
+        
+        .highlight {
+            color: #003366;
+            font-weight: 700;
+        }
+        
+        .grade-badge {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            padding: 2pt 8pt;
+            border-radius: 5px;
+            font-size: 10pt;
+            font-weight: bold;
+            margin-right: 6pt;
+            margin-bottom: 8pt;
+        }
+
+        .grade-badge.alone {
+            display: inline-block;
+            background: #7b98b5;
+            color: white;
+            padding: 2pt 8pt;
+            border-radius: 5px;
+            font-size: 10pt;
+            font-weight: bold;
+            margin-right: 10pt;
+            margin-bottom: 10pt;
+        }
+        
+        .intro-box {
+            background: #f0f7ff;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            margin: 20pt 0;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .intro-box p {
+            margin-bottom: 5pt;
+            line-height: 1.7;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 20pt;
+            margin: 20pt 0;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            text-align: center;
+            border: none;
+            padding-left: 0;
+        }
+        
+        .toc ol {
+            margin-left: 20pt;
+        }
+        
+        .toc li {
+            margin-bottom: 8pt;
+            line-height: 1.6;
+        }
+        
+        .toc a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .work-card {
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            padding: 15pt;
+            margin: 15pt 0;
+            background: #fafafa;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10pt;
+            padding-bottom: 8pt;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .work-title {
+            font-weight: bold;
+            color: #003366;
+            font-size: 11.5pt;
+        }
+        
+        .work-date {
+            color: #666;
+            font-style: italic;
+            font-size: 9.5pt;
+        }
+        
+        .work-content {
+            font-size: 10pt;
+            line-height: 1.7;
+        }
+        
+        .note-box {
+            background: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 12pt;
+            margin: 15pt 0;
+            font-size: 10pt;
+            border-radius: 4px;
+        }
+        
+        .note-box.critical {
+            background: #e3f2fd;
+            border-left-color: #003366;
+        }
+        
+        .timeline {
+            margin: 20pt 0;
+            position: relative;
+            padding-left: 40pt;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 18pt;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #003366 0%, #0066cc 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20pt;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28pt;
+            top: 5pt;
+            width: 14px;
+            height: 14px;
+            background: #003366;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #003366;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #003366;
+            font-size: 11pt;
+            margin-bottom: 4pt;
+        }
+        
+        .timeline-content {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+        
+        .emlds-overview {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            color: white;
+            padding: 20pt;
+            border-radius: 8px;
+            margin: 20pt 0;
+        }
+        
+        .emlds-overview h3 {
+            color: white;
+            border-left-color: white;
+        }
+        
+        .emlds-overview ul {
+            margin-left: 20pt;
+            margin-top: 10pt;
+        }
+        
+        .emlds-overview li {
+            margin-bottom: 6pt;
+        }
+        
+        .final-argument {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            border: 3px solid #003366;
+            padding: 20pt;
+            border-radius: 10px;
+            margin: 25pt 0;
+        }
+        
+        .final-argument p {
+            font-size: 11pt;
+            line-height: 1.8;
+            margin-bottom: 12pt;
+        }
+        
+        .grade-badges-container {
+            display: flex;
+            justify-content: center;
+            gap: 10pt;
+            margin: 15pt 0;
+            flex-wrap: wrap;
+        }
+        
+        .grade-badge.large {
+            font-size: 11pt;
+            padding: 5pt 12pt;
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+        }
+        
+        .grade-badge.licenciatura {
+            background: #2f855a;
+        }
+        
+        .grade-badge.ba {
+            background: #2c5282;
+        }
+        
+        .grade-badge.geral {
+            background: #003366;
+        }
+        
+        .path-choice {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20pt;
+            margin: 20pt 0;
+        }
+        
+        .path-option {
+            background: white;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+        }
+        
+        .path-option.recommended {
+            border: 3px solid #7b98b5;
+            background: #f0f7ff;
+        }
+        
+        .path-option h4 {
+            color: #003366;
+            margin-bottom: 8pt;
+            font-size: 11pt;
+        }
+        
+        .path-option .semester-list {
+            font-size: 9.5pt;
+            color: #555;
+            margin-bottom: 8pt;
+            text-align: left;
+        }
+        
+        .recommended-badge {
+            background: #7b98b5;
+            color: white;
+            padding: 4pt 10pt;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: bold;
+            margin-bottom: 10pt;
+            display: inline-block;
+        }
+        
+        .alternative-badge {
+            background: #2c5282;
+            color: white;
+            padding: 4pt 10pt;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: bold;
+            margin-bottom: 10pt;
+            display: inline-block;
+        }
+        
+        @media print {
+            body { padding: 5mm; }
+            .work-card { page-break-inside: avoid; }
+        }
+
+        ol.dotted {
+          list-style: none;
+          counter-reset: item;
+          margin-left: 0;
+        }
+
+        ol.dotted li {
+          display: block;
+          position: relative;
+          margin-bottom: 5px;
+        }
+
+        ol.dotted li::before {
+          content: counters(item, ".") ". ";
+          counter-increment: item;
+          font-weight: bold;
+        }
+
+        ol.dotted li ol {
+          list-style: none;
+          counter-reset: item;
+          padding-left: 20pt;
+          margin-top: 5px;
+        }
+
+        .personal-touch {
+            color: #555;
+            font-size: 10pt;
+            margin: 10pt 0;
+            font-style: italic;
+        }
+        
+        /* Estilos para os casos interativos */
+        .case-tabs {
+            display: flex;
+            margin-bottom: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .case-tab {
+            flex: 1;
+            padding: 10pt;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            font-size: 10pt;
+            font-weight: bold;
+            color: #003366;
+            transition: all 0.3s;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .case-tab.active {
+            background: #003366;
+            color: white;
+        }
+        
+        .case-tab-content {
+            display: none;
+            padding: 20pt;
+            border: 2px solid #003366;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .case-tab-content.active {
+            display: block;
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15pt;
+            margin: 15pt 0;
+        }
+        
+        .case-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20pt;
+            margin: 15pt 0;
+        }
+        
+        .case-side {
+            padding: 15pt;
+            border-radius: 6px;
+        }
+        
+        .problem-side {
+            background: #e8f0f8;
+            border: 1px solid #7b98b5;
+        }
+        
+        .solution-side {
+            background: #f0f8f0;
+            border: 1px solid #7b98b5;
+        }
+        
+        .case-analysis {
+            background: #f8f9fa;
+            border-left: 4px solid #003366;
+            padding: 15pt;
+            margin: 15pt 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8pt;
+            margin-top: 15pt;
+        }
+        
+        .skill-tag {
+            background: #e3f2fd;
+            color: #003366;
+            padding: 4pt 10pt;
+            border-radius: 4px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        
+        .example-block {
+            margin: 10pt 0;
+            padding: 8pt;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #003366;
+            height: 100%;
+        }
+        
+        .example-block strong {
+            display: block;
+            margin-bottom: 4pt;
+            color: #003366;
+        }
+        
+        .analysis-tabs {
+            display: flex;
+            margin-bottom: 15pt;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .analysis-tab {
+            flex: 1;
+            padding: 8pt;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            font-size: 9pt;
+            font-weight: bold;
+            color: #003366;
+            transition: all 0.3s;
+            text-align: center;
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .analysis-tab.active {
+            background: #2c5282;
+            color: white;
+        }
+        
+        .analysis-tab-content {
+            display: none;
+            padding: 15pt;
+            background: #f8f9fa;
+            border-radius: 0 0 4px 4px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        
+        .analysis-tab-content.active {
+            display: block;
+        }
+        
+        .film-reference {
+            background: #e8f4ff;
+            border-left: 4px solid #2196F3;
+            padding: 12pt;
+            margin: 12pt 0;
+            font-style: italic;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .img-placeholder {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border: 2px dashed #999;
+            padding: 20pt;
+            text-align: center;
+            margin: 10pt 0;
+            color: #666;
+            font-style: italic;
+            border-radius: 8px;
+        }
+        
+        .solution-compare {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15pt;
+            margin: 15pt 0;
+        }
+        
+        .solution-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10pt;
+            padding: 10pt;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .solution-before {
+            flex: 1;
+            color: #c53030;
+            font-weight: bold;
+        }
+        
+        .solution-arrow {
+            margin: 0 15pt;
+            color: #003366;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        
+        .solution-after {
+            flex: 1;
+            color: #2f855a;
+            font-weight: bold;
+        }
+        
+        .solution-note {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 4pt;
+            text-align: center;
+        }
+        
+        /* Estilos para a seção da carta */
+        .letter-section {
+            margin: 25pt 0;
+        }
+        
+        .letter-intro {
+            background: #e3f2fd;
+            border-left: 4px solid #003366;
+            padding: 15pt;
+            margin-bottom: 20pt;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .argument-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20pt 0;
+            font-size: 10pt;
+        }
+        
+        .argument-header {
+            background: #003366;
+            color: white;
+            padding: 12pt;
+            font-weight: bold;
+            border: 1px solid #003366;
+        }
+        
+        .argument-title {
+            background: #f0f7ff;
+            font-weight: bold;
+            color: #003366;
+            padding: 10pt;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        .argument-focus {
+            font-size: 9pt;
+            color: #666;
+            font-style: italic;
+            margin-top: 4pt;
+        }
+        
+        .argument-col {
+            padding: 10pt;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            background: white;
+        }
+        
+        .argument-observation {
+            background: #f9f9f9;
+            font-size: 9pt;
+            color: #555;
+            padding: 8pt;
+            border-top: 1px dashed #ccc;
+            margin-top: 8pt;
+        }
+        
+        .letter-models {
+            margin: 25pt 0;
+        }
+        
+        .model-box {
+            background: #f8f9fa;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 20pt;
+            margin: 15pt 0;
+        }
+        
+        .model-title {
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 10pt;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 8pt;
+        }
+        
+        .model-approach {
+            font-size: 9.5pt;
+            color: #555;
+            margin-bottom: 15pt;
+            font-style: italic;
+        }
+        
+        .model-content {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15pt;
+            border-radius: 4px;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+        
+        .quote-box {
+            background: white;
+            border-left: 4px solid #003366;
+            padding: 12pt;
+            margin: 12pt 0;
+            font-size: 10pt;
+            line-height: 1.5;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .essay-excerpt {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 12pt;
+            margin: 10pt 0;
+            font-size: 9.5pt;
+            line-height: 1.5;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .case-synthesis {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 15pt;
+            margin: 20pt 0;
+        }
+        
+        .case-synthesis h4 {
+            color: #003366;
+            margin-bottom: 10pt;
+            border-bottom: 1px solid #003366;
+            padding-bottom: 5pt;
+        }
+        
+        .case-linking {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 12pt;
+            margin: 15pt 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .case-relevance {
+            background: #e8f4ff;
+            border-left: 4px solid #2196F3;
+            padding: 12pt;
+            margin: 15pt 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .theory-term {
+            color: #003366;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .metric-card {
+            background: #f0f7ff;
+            border: 1px solid #7b98b5;
+            border-radius: 6px;
+            padding: 10pt;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 4pt;
+        }
+        
+        .metric-label {
+            font-size: 9pt;
+            color: #666;
+        }
+        
+        .argument-box {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15pt;
+            margin: 10pt 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1  style="font-size:22px;">Dossiê de Candidatura a Mestrado Internacional</h1>
+        <div class="tagline">Para Marcos</div>
+        <div class="context">
+            Preparado por: Ariane Lesnyak Castelló | Janeiro 2026<br>
+            Contexto: Candidatura ao <a href="https://emlds.fcsh.unl.pt/" target="_blank" style="color: #003366; font-weight: bold;">Erasmus Mundus em Language Data Science (EMLDS)</a>
+        </div>
+    </div>
+
+    <div class="intro-box">
+        <p><strong>Marcos,</strong></p>
+        <p style="text-align:justify;">
+            Lembro das suas aulas onde analisávamos como o <span class="theory-term">capitalismo tardio</span> produz doenças mentais e como regimes autoritários fabricam linguagens de controle. Em <em>Literatura e Cinema</em>, vimos como filmes como <em>The Florida Project</em> e <em>Her</em> expõem as <span class="theory-term">patologias sociais</span> do nosso tempo. Em <em>A Literatura e as Outras Artes</em>, desmontamos a <span class="theory-term">estética do poder</span> em <em>Dogville</em> e <em>Os Deuses Malditos</em>. Em <em>Leituras do Cânon 3</em>, Toni Morrison nos ensinou sobre o <span class="theory-term">apagamento sistemático de vozes</span>.
+        </p>
+        <p style="text-align:justify;">
+            Nos últimos cinco anos, encontrei esses mesmos mecanismos operando nos sistemas automatizados de linguagem que gerem o capitalismo contemporâneo. O que era análise de <em>I, Tonya</em> ou <em>Eyes Wide Shut</em> tornou-se diagnóstico de <em>chatbots</em> corporativos, algoritmos de tradução e arquiteturas semânticas empresariais.
+        </p>
+        <p style="text-align:justify;">
+            Este dossiê mostra como aplico o <strong>método crítico que aprendi com você</strong> para desmontar os novos aparatos de poder linguístico. O EMLDS é a chance de transformar essa prática em pesquisa acadêmica rigorosa.
+        </p>
+    </div>
+
+    <section id="toc">
+        <div class="toc">
+            <h3>ÍNDICE DO DOCUMENTO</h3>
+            <p>Para facilitar sua navegação:</p><br>
+            <ol class="dotted" style="color: #003366;">
+                <li><a href="#programa">O programa EMLDS: estrutura e plano</a></li>
+                <li><a href="#trajetoria">Trajetória: formação crítica em ação</a></li>
+                <li><a href="#disciplinas">Sua sala: as ferramentas fundamentais da análise</a></li>
+                <li><a href="#casos">Três estudos de caso: crítica aplicada</a></li>
+                <li><a href="#carta">Para sua carta: sugestões de trechos e modelos prontos</a></li>
+<li><a href="#anexos">Materiais de apoio</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="programa">
+        <h2>1. O programa EMLDS: estrutura e plano</h2>
+        
+        <div class="emlds-overview">
+            <h3 style="margin-top: 0;">European Master in Language Data Science (EMLDS) 2026-2028</h3>
+            <p><strong>Objetivo:</strong> Formar especialistas que integrem teoria linguística crítica e métodos computacionais para pesquisa em processamento de linguagem natural (NLP) com perspectiva ético-política.</p>
+            <p><strong>Estrutura confirmada (120 ECTS):</strong></p>
+            <ul>
+                <li><strong>Semestre 1:</strong> NOVA FCSH (Lisboa) <strong>ou</strong> Università Cattolica (Milão)</li>
+                <li><strong>Semestres 2 e 3:</strong> Universidad Zaragoza (Espanha)</li>
+                <li><strong>Semestre 4:</strong> Dissertação, estágio ou projeto na universidade de escolha</li>
+            </ul>
+        </div>
+        
+        <div class="path-choice">
+            <div class="path-option recommended">
+                <div class="recommended-badge">MEU PLANO</div>
+                <h4>Lisboa → Zaragoza → Itália</h4>
+                <div class="semester-list">
+                    • Semestre 1: NOVA FCSH<br>
+                    • Semestres 2-3: Universidad Zaragoza<br>
+                    • Semestre 4: Università Cattolica (estágio)
+                </div>
+                <p style="font-size: 9.5pt; text-align:justify;"><strong>Vantagens</strong>: adaptação cultural mais suave com Portugal; foco inicial em teorias críticas de discurso e análise de dados; carga horária reduzida no primeiro semestre para reforço em programação.</p>
+            </div>
+            
+            <div class="path-option">
+                <div class="alternative-badge">PLANO ALTERNATIVO</div>
+                <h4>Itália → Zaragoza → Lisboa</h4>
+                <div class="semester-list">
+                    • Semestre 1: Università Cattolica<br>
+                    • Semestres 2-3: Universidad Zaragoza<br>
+                    • Semestre 4: NOVA FCSH (estágio)
+                </div>
+                <p style="font-size: 9.5pt; text-align:justify;"><strong>Considerações</strong>: maior desafio na parte técnica desde o início; possível perda de sinergia com conexões acadêmicas em Portugal; adaptação cultural mais complexa, apesar de estudar italiano.</p>
+            </div>
+        </div>
+        
+        <div class="note-box critical">
+            <p style="text-align:justify;"><strong>Análise estratégica</strong>: a <strong>Opção A</strong> se alinha com meu perfil atual: permite fortalecer competências técnicas enquanto se beneficia da proximidade cultural e linguística com Portugal. A sequência Lisboa-Zaragoza-Itália assegura exposição às três universidades parceiras com transição gradual do teórico-crítico para o técnico-computacional.</p>
+        </div>
+    </section>
+
+    <section id="trajetoria">
+        <h2>2. Trajetória: Formação Crítica em Ação</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2007–2009</div>
+                <div class="timeline-content">
+                    <strong>Tecnologia da Informação | Faculdade Marechal Rondon</strong><br><br>
+                    <center>
+                        <div class="grade-badge large geral">MÉDIA GERAL: 8,7/10</div>
+                    </center>
+                    Base técnica em programação, bancos e estruturas de dados: a infraestrutura material do <span class="theory-term">capitalismo informacional</span>.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2015–2019</div>
+                <div class="timeline-content">
+                    <strong>Letras Português/Inglês | Universidade de São Paulo</strong>
+                    <div class="grade-badges-container">
+                        <div class="grade-badge large geral">MÉDIA GERAL: 9,1/10</div>
+                        <div class="grade-badge large licenciatura">LICENCIATURA: 10/10</div>
+                        <div class="grade-badge large ba">BACHARELADO: 8,9/10</div>
+                    </div>
+                    <strong>Com você:</strong><br>
+                    <ul>
+<li style="margin-left:20px;">FLM0529 - <strong>A Literatura e as Outras Artes</strong> (2018) - Nota: <span class="highlight">8,5/10</span></li>
+
+<li style="margin-left:20px;">FLM0580 - <strong>Literatura e Cinema</strong> (2018) - Nota: <span class="highlight">10/10</span></li>
+                         <li style="margin-left:20px;">FLM0587 - <strong>Leituras do Cânon 3</strong> (2019) - Nota: <span class="highlight">9,5/10</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2019</div>
+                <div class="timeline-content">
+                    <strong>Síntese do método</strong><br>
+                    Aprendi que toda análise começa pela <strong>escavação do objeto</strong>, seja um filme do Kubrick, um ensaio da Susan Willis, um romance da Morrison ou, como veremos, um sistema de inteligência artificial (IA).
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2020–2025</div>
+                <div class="timeline-content">
+                    <strong>Aplicação profissional da crítica</strong><br>
+                    Cinco anos aplicando seu método a sistemas automatizados:<br><br>
+                    <ul>
+                        <li style="margin-left:25px;"><strong>Análise de <span class="theory-term">alienação linguística</span></strong> em <em>chatbots</em> corporativos</li>
+                        <li style="margin-left:25px;"><strong>Diagnóstico de <span class="theory-term">violência simbólica</span></strong> em algoritmos de tradução</li>
+                        <li style="margin-left:25px;"><strong>Desmontagem de <span class="theory-term">simulacros</span></strong> em arquiteturas semânticas</li>
+                        <li style="margin-left:25px;"><strong>Crítica da <span class="theory-term">reificação</span></strong> em sistemas de IA linguística</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2026 (objetivo)</div>
+                <div class="timeline-content">
+                    <strong>EMLDS: consolidação acadêmica</strong><br>
+                    <p style="text-align: center; margin-top: 8pt;">
+                        <span class="highlight">Crítica cultural + rigor analítico (suas disciplinas) + análise de sistemas (TI) + prática profissional<br>=<br>Language Data Science como crítica materialista</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note-box" style="text-align: justify;">
+            <strong>Coerência teórica</strong>: esta não é uma mudança de área, mas a <span class="highlight">mas a tentativa de dar um passo adiante na construção consistente de uma trajetória acadêmica-profissional que trilho há quase 20 anos</span>, além de ser a <span class="highlight">aplicação contínua do método crítico a diferentes objetos</span>, justamente na intersecção linguística e tecnologia. Se antes o objeto era <em>The Florida Project</em> ou <em>10:04</em>, do Ben Lerner, hoje são sistemas de IA. O método – a escavação rigorosa, a desmontagem de mecanismos de poder – permanece o mesmo.
+        </div>
+    </section>
+
+    <section id="disciplinas">
+        <h2>3. Suas aulas: as ferramentas fundamentais da análise</h2>
+        
+        <div class="note-box critical">
+            <p style="text-align:justify;">
+                <strong>Marcos</strong>,<br>
+   <br>
+             Suas aulas eram laboratórios de análise crítica. Você me ensinou a ler filmes e textos não como "entretenimento" ou "literatura", mas como <span class="theory-term">sintomas sociais</span>, <span class="theory-term">diagnósticos de época</span>, <span class="theory-term">topografias do poder</span>. Aqui relembro os programas das disciplinas que fiz sob sua orientação.           </p>
+        </div>
+        
+        <div class="work-card">
+            <div class="work-header">
+                <div class="work-title">As três disciplinas: ferramentas para desmontar sistemas</div>
+                <div class="work-date">2018-2019</div>
+            </div>
+            
+            <div class="work-content">
+                <div style="text-align: center; margin-bottom: 15pt;">
+                    <div class="grade-badge">LITERATURA E CINEMA: 10/10</div>
+                    <div class="grade-badge">A LITERATURA E AS OUTRAS ARTES: 8,5/10</div>
+                    <div class="grade-badge">LEITURAS DO CÂNON 3: 9,5/10</div>
+                </div>
+                
+                <div class="analysis-tabs">
+                    <button class="analysis-tab active" onclick="openAnalysisTab(event, 'litCinema')">LITERATURA <br> E CINEMA</button>
+                    <button class="analysis-tab" onclick="openAnalysisTab(event, 'litOutrasArtes')">A LITERATURA E AS OUTRAS ARTES</button>
+                    <button class="analysis-tab" onclick="openAnalysisTab(event, 'leiturasCanone')">LEITURAS <br> DO CÂNON 3</button>
+                    <button class="analysis-tab" onclick="openAnalysisTab(event, 'transferencia')">TRANSFERÊNCIA PARA IA</button>
+                </div>
+                
+                <div id="litCinema" class="analysis-tab-content active">
+                    
+                        <div class="example-block">
+                            <strong><em>The Florida Project</em>, Sean Baker (2017)</strong>
+ 
+
+<!-- IMAGEM: print do ensaio sobre The Florida Project -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/the-florida-project-excerpt.PNG?raw=true" style="width:100%;" /></div>
+   
+
+                           <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese</span>: o filme expõe a distância entre a fantasia comercializada da Disney e a realidade precária vivida nos motéis, ilustrando um ciclo vicioso de pobreza e falta de agência no capitalismo tardio. A paisagem pastel é um simulacro que aprisiona seus habitantes em repetição e desesperança.
+                           </div>
+                                                 </div>
+                        <div class="example-block">
+                            <strong><em>Her</em>, Spike Jonze (2013)</strong>
+    
+
+ <!-- IMAGEM: print do ensaio sobre Her -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/her-excerpt.PNG?raw=true" style="width:100%;" /></div>
+ 
+
+                        <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese:</span> por meio de uma estética nostálgica e um protagonista alienado, o filme explora a dificuldade de conexão humana em uma sociedade neoliberal, onde relações são substituídas por objetos de consumo tecnológico e o prazer se torna uma busca vazia e depressiva.
+                            </div>
+                                                  </div>
+                        <div class="example-block">
+                            <strong><em>Eyes Wide Shut</em>, Kubrick (1999)</strong> 
+
+<!-- IMAGEM: print do ensaio sobre Eyes Wide Shut -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/eyes-wide-shut-excerpt.PNG?raw=true" style="width:100%;" /></div>
+  
+
+                           <div class="essay-excerpt" style="text-align:justify;">
+                               <span class="highlight">Síntese:</span> Kubrick investiga a tensão entre pulsões de vida e morte através da jornada onírica e traumática de Bill, usando a música para representar o conflito entre Eros e Thanatos e expor as barreiras de classe e poder que permeiam sua experiência sexual.
+                            </div>
+                                                  </div>
+                        <div class="example-block">
+                            <strong><em>I, Tonya</em>, Craig Gillespie (2017)</strong>
+
+
+<!-- IMAGEM: print do ensaio sobre I, Tonya -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/i-tonya-excerpt.PNG?raw=true" style="width:100%;"/></div>
+   
+
+                            <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese:</span> o filme descontrói a narrativa da “verdade única” através de múltiplas perspectivas, criticando o mito do sonho americano e expondo como a mídia e os estereótipos de classe constroem vilões e heróis em uma era de pós-verdade.                            </div>
+                                                 </div>
+        
+
+ <div class="example-block">
+                            <strong><em>Short Cuts</em>, Robert Altman (1993)</strong>  
+
+<!-- IMAGEM: print do ensaio sobre Short Cuts -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/short-cuts-excerpt.PNG?raw=true" style="width:100%;" /></div>
+ 
+                          <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese:</span> Altman retrata a fragmentação da coletividade em Los Angeles, onde acasos e crises pessoais refletem uma ansiedade social profunda, sugerindo que o verdadeiro desastre não é o terremoto, mas a alienação e a perda de conexão humana.
+                            </div>
+                                                   </div>
+         
+
+            </div>
+                               
+                <div id="litOutrasArtes" class="analysis-tab-content">
+                                         <div class="example-block">
+                            <strong><em>Dogville</em>, Lars von Trier (2003)</strong>                                                       <!-- IMAGEM: print do ensaio sobre Dogville -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/dogville-excerpt.PNG?raw=true" style="width:100%;"/></div>
+  
+
+<div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese</span>: Von Trier usa uma alegoria teatralizada para criticar o capitalismo através da figura de Grace, explorando como a exploração, a desumanização e a traição surgem quando a lógica do sistema é levada ao extremo em uma comunidade aparentemente idílica.                          </div>
+
+
+
+
+
+                     </div>
+                        <div class="example-block">
+                            <strong><em>Os Deuses Malditos</em>, Visconti (1969)</strong>                                                     <!-- IMAGEM: print do ensaio sobre Os Deuses Malditos -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/deuses-malditos-excerpt.PNG?raw=true"style="width:100%;"/></div>
+  
+
+
+<div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese</span>: Por meio da trajetória de Martin, Visconti simboliza a ascensão e a lógica interna do nazismo, mostrando como a perversão e a violência se normalizam e se integram à estrutura familiar e social, refletindo a transformação moral da Alemanha nos anos 1930.                           </div>
+ 
+
+                      </div>
+                         </div>
+                
+                <div id="leiturasCanone" class="analysis-tab-content">
+                    
+                        <div class="example-block">
+                            <strong><em>Beloved</em>, Toni Morrison (1987)</strong>                          
+                            <!-- IMAGEM: print do ensaio sobre Beloved -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/beloved-excerpt.PNG?raw=true" style="width:100%;"/></div>
+
+ <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese:</span> Morrison aborda o trauma da escravidão e a importância da memória coletiva para a cura, mostrando como a comunidade e a voz partilhada são essenciais para confrontar o passado e reconstruir subjetividades livres do legado colonial.                       </div>
+
+
+
+
+
+                        </div>
+                        <div class="example-block">
+                            <strong><em>Andrew's Brain</em>, EL Doctorow (2014)</strong>   
+
+ <!-- IMAGEM: print do ensaio sobre Andrew's Brain -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/andrew's-brain-excerpt.PNG?raw=true" style="width:100%;"/></div>
+   
+
+
+                        <div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese</span>: Doctorow explora a relação entre trauma individual e história coletiva através de uma narrativa fragmentada e metaficcional, questionando a capacidade de representação da experiência contemporânea e a apatia diante das crises sociais.                          </div>
+                                                </div>
+                        <div class="example-block">
+                            <strong><em>10:04</em>, Ben Lerner (2014)</strong>
+                            
+
+                         <!-- IMAGEM: print do ensaio sobre 10:04 -->
+                            <div class="img-placeholder"><img src="https://github.com/alc-etimo/marcos/blob/main/10-04-excerpt.PNG?raw=true" style="width:100%;"/></div>
+         
+
+<div class="essay-excerpt" style="text-align:justify;">
+                                <span class="highlight">Síntese</span>: Lerner captura momentos de potencial coletivo e reinvenção narrativa diante de desastres iminentes, propondo que a arte pode oferecer vislumbres de futuros alternativos e resistir à lógica mercantil, mesmo em face do colapso.                         </div>
+   </div>
+
+<div class="note-box critical" style="text-align:justify;">
+                          <strong>Síntese do método crítico</strong>:
+ como Morrison, Doctorow e Lerner me ensinaram a ler o <span class="theory-term">apagamento</span>, o <span class="theory-term">trauma</span> e a <span class="theory-term">fragmentação</span> como fenômenos tanto textuais quanto sociais. A transferência dessa leitura para sistemas não-literários constitui a base da minha atuação profissional atual. </div>                          </div>
+                            
+                        </div>
+  
+
+
+
+
+
+
+                                                                                   
+                <div id="transferencia" class="analysis-tab-content">
+                                            <div class="example-block">
+                            <strong>De <em>The Florida Project</em> + "Reenchantment: extravaganzas and simulations" (RITZER) à IA</strong>
+<ul>
+<li style="margin-left:30px;"><span class="highlight">Transferência</span>: a mesma análise da <span class="theory-term">topografia do poder</span> aplico a algoritmos de recomendação.</li>
+<li style="margin-left:30px;"><span class="highlight">Resultado</span>: diagnóstico de como sistemas criam <span class="theory-term">mapas de desejo</span> capitalistas.</li></ul></div>
+
+
+<div class="example-block">
+                            <strong>De <em>Beloved</em> aos sistemas</strong>
+<ul>
+<li style="margin-left:30px;"><span class="highlight">Transferência</span>: a mesma atenção ao <span class="theory-term">apagamento de vozes</span> aplico a <em>scripts</em> de atendimento.</li>
+<li style="margin-left:30px;"><span class="highlight">Resultado</span>: intervenções que restauram <span class="theory-term">agência linguística</span>.
+</li></ul>                        </div>
+
+
+                        <div class="example-block">
+                            <strong>De <em>Eyes Wide Shut</em> + <span style="font-size:14px;">"Adorno and authoritarian irrationalism" (CROOK)</span> a arquiteturas semânticas</strong>
+
+<ul>
+<li style="margin-left:30px;"><span class="highlight">Transferência</span>: o mesmo rigor na análise de <span class="theory-term">estruturas formais</span> aplico a sistemas simbólicos.</li>
+   
+<li style="margin-left:30px;"><span class="highlight">Resultado</span>: arquiteturas que combatem <span class="theory-term">ambiguidade ideológica</span>.
+  </li></ul>                      </div>
+ 
+
+                       <div class="example-block">
+                            <strong>De <em>Her</em> + "On Selfies" (STALLABRASS) à crítica da tecnologia</strong>
+
+                            <ul>
+<li style="margin-left:30px;"><span class="highlight">Transferência</span>:  a mesma crítica dos <span class="theory-term">simulacros afetivos</span> aplico a <em>chatbots</em> corporativos.</li>
+                            <li style="margin-left:30px;"><span class="highlight">Resultado</span>: diagnóstico da <span class="theory-term">alienação linguística</span> como patologia organizacional.
+      </li></ul>                  </div>
+                    </div>
+                </div>
+            </div>
+       
+    </section>
+
+    <section id="casos">
+        <h2>4. Três estudos de caso: crítica aplicada</h2>
+        
+        <p style="text-align:justify; margin-bottom: 15pt;">
+            Use as abas para navegar entre os três casos. Cada um aplica o método aprendido com você a sistemas reais de IA linguística. Estrutura: <strong>Problema → Raciocínio → Solução → Resultado</strong>.
+        </p>
+        
+        <div class="case-tabs">
+            <button class="case-tab active" onclick="openCaseTab(event, 'case1')">CASO 1: <br> alienação linguística</button>
+            <button class="case-tab" onclick="openCaseTab(event, 'case2')">CASO 2: <br> violência do padrão</button>
+            <button class="case-tab" onclick="openCaseTab(event, 'case3')">CASO 3: <br> reificação terminológica</button>
+        </div>
+        
+        <!-- CASO 1 -->
+        <div id="case1" class="case-tab-content active">
+            <div class="case-header" style="background: #003366; color: white; padding: 10pt; border-radius: 6px 6px 0 0;">
+                <h3 style="margin: 0; color: white; border-left: 5px solid #fff;">Caso 1: alienação linguística no capitalismo de serviços</h3>
+                <p style="font-size: 9.5pt; margin-top: 4pt; opacity: 0.9;">Como um <em>chatbot</em> corporativo reproduz a patologia social no nível sintático</p>
+            </div>
+            
+            <div class="case-content">
+                <div class="analysis-tabs">
+                    <button class="analysis-tab active" onclick="openCase1Tab(event, 'problema1')">PROBLEMA</button>
+                    <button class="analysis-tab" onclick="openCase1Tab(event, 'raciocinio1')">RACIOCÍNIO</button>
+                    <button class="analysis-tab" onclick="openCase1Tab(event, 'solucao1')">SOLUÇÃO</button>
+                    <button class="analysis-tab" onclick="openCase1Tab(event, 'resultado1')">RESULTADO</button>
+                </div>
+                
+                <div id="problema1" class="analysis-tab-content active">
+                    <h4>A gramática da alienação</h4>
+                    <p style="text-align:justify;">
+                        Sistema de <em>chatbot</em> em multinacional de telecom gera <em>scripts</em> que operadores (18-30 anos, primeiro emprego, sob pressão, cursando ensino superior) não entendem.
+                    </p>
+                    
+                        <div class="example-block">
+                            <strong>Nominalização (reificação):</strong><br>
+                            
+<!-- IMAGEM: print do script original com nominalização -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/exemplo-rebuscado.png?raw=true" style="width:100%;"/>
+ 
+</div>
+<br>
+                            <em>Ação → coisa. Operador não se vê no processo.</em>
+                                                   
+  </div>
+                      <div class="example-block">
+                            <strong>Voz passiva (apagamento):</strong><br>
+
+
+<!-- IMAGEM: print do script com voz passiva -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/exemplo-passiva.png?raw=true"/></div>
+
+
+<br>
+                            <em>Agente oculto. Operador é instrumento.</em>
+                                                    </div>
+                        <div class="example-block">
+                            <strong>Modalidade burocrática:</strong><br>
+                            
+
+<!-- IMAGEM: print do script burocrático -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/exemplo-institucional.png?raw=true" style="width:100%;"/></div>
+
+<br>
+                            <em>Distância institucional. Comunicação como procedimento.</em>
+                            
+                        </div>
+                        <div class="example-block">
+                            <strong>Reação dos operadores:</strong><br>
+                            
+
+<!-- IMAGEM SUGERIDA: print do comentário do operador -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/comentario-operador-critica-1.png?raw=true" style="width:100%;"/></div>
+<div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/comentario-operador-critica-2.png?raw=true" style="width:100%;" /></div>
+<div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/comentario-operador-critica-3.png?raw=true" style="width:100%;"/></div>
+
+<br>
+                            <em>Testemunho do apagamento linguístico.</em>
+                            
+                        </div>
+                    </div>
+                              
+                <div id="raciocinio1" class="analysis-tab-content">
+                    <h4>Análise crítica: a sintaxe como campo de poder</h4>
+                    <p style="text-align:justify;">
+                        Usei o método da análise de filmes + bibliografia + linguística para escavar o problema:
+                    </p>
+                                          <div class="example-block">
+                            <strong>Escavação do objeto:</strong><br>
+                            Não é "má redação". É <span class="theory-term">gramática institucional</span> que estrutura relações de poder.
+                        </div>
+                        <div class="example-block">
+                            <strong>Diagnóstico de patologia:</strong><br>
+                            Como em <em>The Florida Project</em>: sistema doente produzindo sintomas (reclamações).
+                        </div>
+                        <div class="example-block">
+                            <strong>Alienação linguística:</strong><br>
+                            Operador não se reconhece no discurso que é forçado a usar – <span class="theory-term">estranhamento</span>.
+                        </div>
+                        <div class="example-block">
+                            <strong>Simulacro de comunicação:</strong><br>
+                            Forma sem substância, como em <em>Her</em> – aparência de função.
+                        </div>
+                    </div>
+                               
+                <div id="solucao1" class="analysis-tab-content">
+                    <h4>Intervenção: restaurar a agência linguística</h4>
+                    <p style="text-align:justify;">
+                        Propus reescritas que desmontavam a gramática alienante:
+                    </p>
+                    
+                    <div class="solution-compare">
+                        <div class="solution-row">
+                            <div class="solution-before" style="text-align:center;">ANTES (PATOLOGIA) <br> Reificação completa</div>
+                            <div class="solution-arrow">→</div>
+                            <div class="solution-after" style="text-align:center;">DEPOIS (CURA) <br> Ação direta, agente implícito</div>
+                        </div>
+                                                <!-- IMAGEM centralizada -->
+                        <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/exemplo-correcao.png?raw=true" style="width:100%;"/></div>
+                    </div>
+                    
+                    <div class="solution-compare">
+                        <div class="solution-row">
+                            <div class="solution-before" style="text-align:center;">ANTES (PATOLOGIA) <br> Apagamento do agente</div>
+                            <div class="solution-arrow">→</div>
+                            <div class="solution-after" style="text-align:center;">DEPOIS (CURA) <br> Voz ativa, responsabilidade clara</div>
+                        </div>
+                                               <!-- IMAGEM centralizada -->
+                        <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/exemplo-correcao-2.png?raw=true" style=width:100%;height:auto;"/></div>
+                    </div>
+                </div>
+                
+                <div id="resultado1" class="analysis-tab-content">
+                    <h4>Resultados: métricas da transformação</h4>
+                    <div class="case-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">+12 pts</div>
+                            <div class="metric-label">Satisfação <br> dos clientes</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">+22%</div>
+                            <div class="metric-label">Satisfação <br> dos operadores</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">-18%</div>
+                            <div class="metric-label">Reencaminhamentos <br> de ligações</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">200+</div>
+                            <div class="metric-label">Agentes <br> capacitados</div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-synthesis">
+                        <h4>Síntese do Caso 1</h4>
+                        <p style="text-align:justify;">Este caso demonstra como a <span class="theory-term">alienação linguística</span> não é mera questão de "má redação", mas uma patologia organizacional que reproduz no nível sintático a mesma <span class="theory-term">reificação</span> que Marx identificou no trabalho industrial. A intervenção mostrou que combater essa alienação gera ganhos mensuráveis tanto em eficiência quanto em bem-estar laboral.</p>
+                    </div>
+                    
+                    <div class="case-linking" style="text-align:justify;">
+                        <strong>Ligação com as disciplinas</strong>: a mesma análise que fiz de <em>The Florida Project</em> – diagnóstico da patologia social através da forma – apliquei aqui aos <em>scripts</em> corporativos. O método de <span class="theory-term">escavação do objeto</span> que aprendi com você, permitiu identificar que o problema não era técnico, mas político-linguístico.
+                    </div>
+                    
+                    <div class="case-relevance" style="text-align:justify;">
+                        <strong>Relevância para o EMLDS</strong>: o caso mostra minha capacidade de aplicar análise crítica a dados linguísticos reais, diagnosticando problemas que métodos puramente quantitativos não capturam. O EMLDS valoriza exatamente essa ponte entre teoria crítica e análise de dados.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CASO 2 -->
+        <div id="case2" class="case-tab-content">
+            <div class="case-header" style="background: #2c5282; color: white; padding: 10pt; border-radius: 6px 6px 0 0;">
+                <h3 style="margin: 0; color: white; border-left: 5px solid #fff;">Caso 2: a violência do padrão: tradução como aparelho ideológico</h3>
+                <p style="font-size: 9.5pt; margin-top: 4pt; opacity: 0.9;">Como algoritmos reproduzem colonialismo linguístico em escala industrial</p>
+            </div>
+            
+            <div class="case-content">
+                <div class="analysis-tabs">
+                    <button class="analysis-tab active" onclick="openCase2Tab(event, 'problema2')">PROBLEMA</button>
+                    <button class="analysis-tab" onclick="openCase2Tab(event, 'raciocinio2')">RACIOCÍNIO</button>
+                    <button class="analysis-tab" onclick="openCase2Tab(event, 'solucao2')">SOLUÇÃO</button>
+                    <button class="analysis-tab" onclick="openCase2Tab(event, 'resultado2')">RESULTADO</button>
+                </div>
+                
+                <div id="problema2" class="analysis-tab-content active">
+                    <h4>Apagamento Identitário Automatizado</h4>
+                    <p style="text-align:justify;">
+                        Sistemas de IA "corrigem" dialetos e variedades linguísticas como se fossem erros, apagando marcadores culturais identitários.
+                    </p>
+                                            <div class="example-block">
+                            <strong>Dialeto irlandês apagado:</strong>   
+
+<!-- IMAGEM SUGERIDA: print da "correção" do dialeto -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-2-exemplo-1.png?raw=true"/></div>
+    
+
+                         "<span class="highlight">me</span> grandfather" → a IA "corrigiu" para "<span class="highlight">my</span> grandfather"<br>
+                            <em>Perda de marcador cultural identitário.</em>
+                                                </div>
+                        <div class="example-block">
+                            <strong>Imperialismo EN-US:</strong>
+
+<!-- IMAGEM SUGERIDA: print da correção travelling → traveling -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-2-exemplo-2.png?raw=true"/></div>
+
+
+                            "<span class="highlight">travelling</span>" (UK) → a IA "corrigiu" para "<span class="highlight">traveling</span>" (US)<br>
+                            <em>Hegemonia normativa automatizada.</em>
+                                                    </div>
+                        <div class="example-block">
+                            <strong>Variedade vernácula apagada:</strong>                          
+ 
+                                            
+<!-- IMAGEM SUGERIDA: print da correção da variedade vernácula -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-2-exemplo-3.png?raw=true" /></div>
+    
+"<span class="highlight">I ain't no takin' no charity!</span>" → a IA "corrigiu" para "I'm not taking any charity!"<br>
+      
+<em>Perda de força expressiva e marcador socioeconômico.</em>
+                        </div>
+                                                    </div>
+                        </div>
+                                           
+                <div id="raciocinio2" class="analysis-tab-content">
+                    <h4>Análise: a padronização como violência</h4>
+                    <p style="text-align:justify;">
+                        Usei a crítica da estética do poder (Visconti, Dogville) para diagnosticar:
+                    </p>
+                                            <div class="example-block">
+                            <strong>Aparelho ideológico:</strong><br>
+                            Sistema de "correção" não é neutro – é <span class="theory-term">máquina de consenso linguístico</span>.
+                        </div>
+                        <div class="example-block">
+                            <strong>Colonialismo digital:</strong><br>
+                            EN-US como "padrão universal" reproduz <span class="theory-term">imperialismo cultural</span> algorítmico.
+                        </div>
+                        <div class="example-block">
+                            <strong>Violência da domesticação:</strong><br>
+                            Como na tradução de textos colonizados: apagar diferença é <span class="theory-term">violência simbólica</span>.
+                        </div>
+                        <div class="example-block">
+                            <strong>Exclusão na acessibilidade:</strong><br>
+                            Legendas <em>closed caption</em> que apagam dialetos são <span class="theory-term">dupla exclusão</span> – linguística e sensorial.
+                        </div>
+                    </div>
+                              
+                <div id="solucao2" class="analysis-tab-content">
+                    <h4>Intervenção: protocolos de resistência</h4>
+                    <p style="text-align:justify;">
+                        Criei sistema manual de proteção baseado diferenciar "erro" de "variedade":
+                    </p>
+                                            <div class="example-block">
+                            <strong>Categoria crítica:</strong><br>
+                            Proposta de "Language/Local/Dialect" no sistema de erros.<br>
+                            <em>Reclassifica "erro" como "marcador identitário".</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Argumentação teórica:</strong><br>
+                            Fundamentada em análise de <span class="theory-term">regimes autoritários</span> e seus aparatos linguísticos.<br>
+                            <em>Não apenas "sociolinguística", mas crítica do poder.</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Intervenção manual:</strong><br>
+                            Análise de projetos com marcação de dialetos a proteger.<br>
+                            <em>Aplicação prática da crítica cultural.</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Documentação crítica:</strong><br>
+                            Casos paradigmáticos documentados como <span class="theory-term">estudos de violência simbólica</span>.<br>
+                            <em>Material para análise futura.</em>
+                       </div>
+    
+
+
+<div class="note-box critical">                            <strong>Argumento documentado:</strong><br>
+                                                        <div class="original">
+                                    <!-- IMAGEM: argumento com agência -->
+                            <div class="img-placeholder" style="margin-top:3pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/argumentacao-agencia.png?raw=true" style="width:100%;height:auto;"/>
+  <br>
+<p style="font-size10px;">Argumento para agência de localização defendendo a preservação de dialetos como marcadores identitários.
+<br>
+CC = legendas <span style="font-style:normal;">closed caption</span> para audiências Surdas e/ou ensurdecidas.</p>                        </div> </div>
+  </div>
+            
+
+
+
+                </div>
+                               
+                <div id="resultado2" class="analysis-tab-content">
+                    <h4>Resultados: estrutura da resistência</h4>
+                    <div class="case-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">12+</div>
+                            <div class="metric-label">Projetos com<br> análise dialetal</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">Agências sensibilizadas</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">5</div>
+                            <div class="metric-label">Categorias críticas propostas</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Casos documentados</div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-synthesis">
+                        <h4>Síntese do Caso 2</h4>
+                        <p style="text-align:justify;">Este caso revela como a padronização linguística automatizada funciona como <span class="theory-term">aparelho ideológico</span> que reproduz colonialismo em escala digital. A intervenção demonstrou que é possível criar estruturas de resistência dentro dos fluxos industriais, politizando a tecnologia em vez de simplesmente rejeitá-la ou sucumbir a ela.</p>
+                    </div>
+                    
+                    <div class="case-linking" style="text-align:justify;">
+                        <strong>Ligação com as disciplinas</strong>: a mesma análise que fiz de <em>Os Deuses Malditos</em> – sobre como regimes autoritários fabricam linguagens de controle – apliquei aqui aos sistemas de IA. A atenção ao <span class="theory-term">apagamento sistemático</span> que aprendi com Toni Morrison guiou minha intervenção.
+                    </div>
+                    
+                    <div class="case-relevance">
+                        <strong>Relevância para o EMLDS</strong>: o caso demonstra minha capacidade de diagnosticar e intervir em problemas éticos complexos em sistemas linguísticos automatizados – exatamente o tipo de pesquisa crítica que o EMLDS busca desenvolver.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CASO 3 -->
+        <div id="case3" class="case-tab-content">
+            <div class="case-header" style="background: #2c5282; color: white; padding: 10pt; border-radius: 6px 6px 0 0;">
+                <h3 style="margin: 0; color: white; border-left: 5px solid #fff;">Caso 3: a reificação terminológica: arquiteturas semânticas como crítica</h3>
+                <p style="font-size: 9.5pt; margin-top: 4pt; opacity: 0.9;">Como construir sistemas simbólicos que combatam a ambiguidade como ideologia</p>
+            </div>
+            
+            <div class="case-content">
+                <div class="analysis-tabs">
+                    <button class="analysis-tab active" onclick="openCase3Tab(event, 'problema3')">PROBLEMA</button>
+                    <button class="analysis-tab" onclick="openCase3Tab(event, 'raciocinio3')">RACIOCÍNIO</button>
+                    <button class="analysis-tab" onclick="openCase3Tab(event, 'solucao3')">SOLUÇÃO</button>
+                    <button class="analysis-tab" onclick="openCase3Tab(event, 'resultado3')">RESULTADO</button>
+                </div>
+                
+                <div id="problema3" class="analysis-tab-content active">
+                    <h4>A ambiguidade como campo de poder</h4>
+                    <p style="text-align:justify;">
+                        Corporações operam com alta vagueza terminológica. Os modelos de inteligência artificial ignoram glossários e contextos, gerando inconsistências críticas.
+                    </p>
+                                       <div class="example-block">
+                            <strong>Violência terminológica:</strong><br>
+                            <span class="highlight">"Job"</span> → traduzido como <span class="highlight">"trabalho"</span><br>
+ 
+
+<!-- IMAGEM SUGERIDA: print da tradução errada de "job" -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-exemplo-2.png?raw=true" style="width:100%;height:auto;"/></div>
+    
+
+                           <em>O glossário exige <span class="highlight">"processo"</span>.<br>
+
+<div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-voc-exemplo-1.png?raw=true" style="width:100%;height:auto;"/></div>
+    
+
+
+Quebra de governança terminológica. A IA ignora os próprios termos definidos.</em>
+             
+
+                                   </div>
+                        <div class="example-block">
+<strong>Reificação de marca:</strong><br>
+
+<span class="highlight">"Google Ads"</span> → <span class="highlight">"Anúncios do Google"</span><br>
+                                                      
+  <!-- IMAGEM SUGERIDA: print da tradução indevida de nome de produto -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-exemplo-1.png?raw=true" style="width:100%;height:auto;"/></div>
+    
+
+<em>Nome de produto traduzido. Identidade violada.</em>
+
+
+<!-- IMAGEM SUGERIDA: print da tradução indevida de nome de produto -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-voc-exemplo-2.png?raw=true" style="width:100%;height:auto;"/></div>
+  
+
+
+                    </div>
+                       
+
+
+
+
+
+
+
+
+
+ <div class="example-block">
+  
+                          <strong>Equivalência falha:</strong><br>
+                            <span class="highlight">"GDPR"</span> mantido em conteúdo para Brasil<br>
+
+<!-- IMAGEM SUGERIDA: print do GDPR não traduzido -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-exemplo-3.png?raw=true" style="width:100%;height:auto;"/></div>
+                        <br>
+ 
+
+<em>Quando deveria ser <span class="highlight">"LGPD"</span>, a <span class="highlight">Lei Geral de Proteção de Dados.</span>
+<br>
+
+<!-- IMAGEM SUGERIDA: print do GDPR não traduzido -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-voc-exemplo-3.png?raw=true" style="width:100%;height:auto;"/></div>
+ 
+
+
+Falha jurídica.</em>
+  </div>     
+
+                                           
+ <div class="example-block">
+                       
+     <strong>Achatamento semântico:</strong><br>
+                          <span class="highlight">"Goals"</span> → sempre traduzido como <span class="highlight">"objetivos"</span><br>
+   
+
+  <!-- IMAGEM: goals -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-exemplo-4.png?raw=true" style="width:100%;height:auto;"/></div>
+ 
+
+                         <em>Quando o suporte subjetivo exige "metas".</em>
+ 
+
+   <!-- IMAGEM: vocabulário  -->
+                            <div class="img-placeholder" style="margin-top:8pt; padding:10pt; font-size:8.5pt;"><img src="https://github.com/alc-etimo/marcos/blob/main/caso-3-voc-exemplo-4.png?raw=true" style="width:100%;height:auto;"/></div>
+ 
+
+    <em>O simulacro da neutralidade algorítmica ignora a precisão do contexto e reifica a linguagem.</em>
+
+                       </div>
+                    </div>
+               
+                
+                <div id="raciocinio3" class="analysis-tab-content">
+                    <h4>Análise: a ambiguidade como ideologia</h4>
+                    <p style="text-align:justify;">
+                        Usei a crítica materialista para entender o problema:
+                    </p>
+                                           <div class="example-block">
+                            <strong>Reificação linguística:</strong><br>
+                            Termos vagos transformam processos em coisas – <span class="theory-term">coisificação do sentido</span>.
+                        </div>
+                        <div class="example-block">
+                            <strong>Poder através da vagueza:</strong><br>
+                            Como em regimes autoritários: quem controla os sentidos controla a prática.
+                        </div>
+                        <div class="example-block">
+                            <strong>Tensão probabilística-determinística:</strong><br>
+                            IA: "job" provavelmente = "trabalho". Corporação: "job" sempre = "processo".
+                        </div>
+                        <div class="example-block">
+                            <strong>Arquitetura como infraestrutura:</strong><br>
+                            Sistemas semânticos são <span class="theory-term">infraestruturas de sentido</span> que estabilizam relações.
+                        </div>
+                    </div>
+                               
+                <div id="solucao3" class="analysis-tab-content">
+                    <h4>Intervenção: arquitetura de sentido</h4>
+                    <p style="text-align:justify;">
+                        Construí sistemas que impunham clareza conceitual:
+                    </p>
+                    
+                        <div class="example-block">
+                            <strong>Governança terminológica:</strong><br>
+                            Glossários como <span class="theory-term">instrumentos de poder linguístico</span> corporativo.<br>
+                            <em>Determinismo sobre probabilidade.</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Arquiteturas semânticas como crítica:</strong><br>
+                            Estruturas que relacionam termos e restrições.<br>
+                            <em>"Product X Boards" → tipo: nome_de_produto → ação: não_traduzir.</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Equivalência funcional:</strong><br>
+                            "GDPR" → "LGPD" (Brasil)<br>
+                            <em>Não tradução literal, mas adaptação que preserva função.</em>
+                        </div>
+                        <div class="example-block">
+                            <strong>Rigor conceitual:</strong><br>
+                            Como em <em>Andrew's Brain</em>: precisão terminológica como clareza política.<br>
+                            <em>Definir para descobrir a ideologia.</em>
+                        </div>
+                    </div>
+                               
+                <div id="resultado3" class="analysis-tab-content">
+                    <h4>Resultados: a estrutura do sentido</h4>
+                    <div class="case-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">500+</div>
+                            <div class="metric-label">Termos <br>sistematizados</div>
+                       </div>
+                        <div class="metric-card">
+                            <div class="metric-value">30%</div>
+                            <div class="metric-label">Redução <br> de retrabalho</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">12</div>
+                            <div class="metric-label">Processos padronizados</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1</div>
+                            <div class="metric-label">Sistema simbólico construído</div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-synthesis">
+                        <h4>Síntese do Caso 3</h4>
+                        <p style="text-align:justify;">Este caso demonstra como combater a ambiguidade terminológica é uma tentativa de <span class="theory-term">não ceder a pressões mercadológicas</span>. A construção de arquiteturas semânticas claras não é mera "burocracia", mas criação de infraestruturas que permitem práticas transparentes e, portanto, mais democráticas.</p>
+                    </div>
+                    
+                    <div class="case-linking" style="text-align:justify;">
+                        <strong>Ligação com as disciplinas</strong>: o mesmo rigor formal que analisei em <em>Eyes Wide Shut</em> – atenção obsessiva à estrutura como forma de revelar conteúdos – apliquei aqui às arquiteturas semânticas. Como em <em>Andrew's Brain</em>, a precisão conceitual se revela como ferramenta política.
+                    </div>
+                    
+                    <div class="case-relevance" style="text-align:justify;">
+                        <strong>Relevância para o EMLDS</strong>: o caso mostra minha capacidade de construir sistemas simbólicos estruturados – competência fundamental para pesquisa em Language Data Science. Demonstra também como o rigor teórico pode gerar soluções práticas com impacto material mensurável.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carta">
+        <h2>5. Para sua Carta: Materiais de Apoio</h2>
+        
+        <div class="letter-intro">
+            <p style="text-align:justify;">
+                <strong>Marcos,</strong><br>
+<br>                Abaixo apresento <strong>sugestões baseadas no que pesquisei sobre o processo de admissão do EMLDS</strong>. O comitê valoriza especialmente: capacidade analítica crítica, transferência de conhecimentos para novos contextos, rigor metodológico e potencial para pesquisa interdisciplinar.
+            </p>
+            <p style="text-align:justify; margin-top: 8pt;">
+                <strong>Fique à vontade para usar, aproveitar ou ignrorar as tabelas abaixo</strong>; são só referências. Cada tópico inclui versões em português e inglês, além de observações sobre por que o argumento é relevante para o programa.
+            </p>
+        </div>
+        
+        <!-- Tabela 1 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    1. EXCELÊNCIA ACADÊMICA E RASTREABILIDADE
+                    <div class="argument-focus">Foco: desempenho e ranking</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;width: 50%;">
+                    <strong>Português</strong><br>
+                    "Ariane demonstrou desempenho excepcional em minhas disciplinas, com notas de 10/10 em Literatura e Cinema, 8,5/10 em A Literatura e as Outras Artes, e 9,5/10 em Leituras do Cânon 3. Sua média geral de 9,1/10 no curso de Letras da USP a coloca entre os 10% melhores da sua turma."
+                </td>
+                <td class="argument-col" style="text-align:justify;width: 50%;">
+                    <strong>English</strong><br>
+                    "Ariane demonstrated exceptional performance in my courses, with grades of 10/10 in Literature and Cinema, 8.5/10 in Literature and the Other Arts, and 9.5/10 in Readings of the Canon 3. Her overall average of 9.1/10 in the Letters course at USP places her among the top 10% of her class."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: os mestrados europeus utilizam o percentual (<i>ranking</i>) na turma como métrica principal de qualidade acadêmica. Este trecho atesta que meu desempenho na USP foi de nível superior.
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Tabela 2 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    2. CAPACIDADE DE ANÁLISE CRÍTICA APROFUNDADA
+                    <div class="argument-focus">Foco: método e profundidade analítica</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>Português</strong><br>
+                    "O que mais impressiona em Ariane é sua capacidade de escavação rigorosa do objeto analisado. Em seus trabalhos sobre <em>The Florida Project</em> e <em>Eyes Wide Shut</em>, ela não se limitou à análise superficial, mas desmontou as estruturas de poder embutidas na forma fílmica, aplicando conceitos como 'topografia do poder' e 'reificação' com precisão teórica."
+                </td>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>English</strong><br>
+                    "What most impresses about Ariane is her capacity for rigorous excavation of the analyzed object. In her papers on <em>The Florida Project</em> and <em>Eyes Wide Shut</em>, she didn't limit herself to surface analysis but dismantled the power structures embedded in cinematic form, applying concepts like 'topography of power' and 'reification' with theoretical precision."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: o EMLDS busca alunos que vão além da análise quantitativa superficial. Este trecho demonstra minha capacidade de análise qualitativa profunda – competência essencial para pesquisa crítica em Language Data Science.
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Tabela 3 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    3. TRANSFERÊNCIA DE FERRAMENTAS TEÓRICAS PARA NOVOS CONTEXTOS
+                    <div class="argument-focus">Foco: adaptabilidade e aplicação Interdisciplinar</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>Português</strong><br>
+                    "Ariane possui capacidade notável de transferir ferramentas da teoria crítica para contextos completamente novos. Ela aplica o método de análise que aprendeu em minhas aulas – originalmente desenvolvido para filmes e literatura – para diagnosticar problemas em sistemas de IA linguística. Essa transferência metodológica é rara e valiosíssima."
+                </td>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>English</strong><br>
+                    "Ariane has a remarkable ability to transfer tools from critical theory to completely new contexts. She applies the analytical method learned in my courses—originally developed for film and literature—to diagnose problems in language AI systems. This methodological transfer is rare and extremely valuable."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: esta é talvez a competência mais importante para o EMLDS. O programa busca exatamente alunos que possam fazer pontes entre teoria linguística crítica e análise de dados computacional.
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Tabela 4 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    4. RIGOR CONCEITUAL E CAPACIDADE DE SÍNTESE ESTRUTURANTE
+                    <div class="argument-focus">Foco: precisão teórica e construção de sistemas</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>Português</strong><br>
+                    "Ariane demonstra rigor conceitual incomum. Em suas análises, conceitos como 'alienação linguística', 'violência simbólica' e 'simulacro' não são usados de forma decorativa, mas como ferramentas precisas de diagnóstico. Essa precisão se reflete em sua capacidade de construir sistemas simbólicos estruturados."
+                </td>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>English</strong><br>
+                    "Ariane demonstrates uncommon conceptual rigor. In her analyses, concepts like 'linguistic alienation', 'symbolic violence', and 'simulacrum' aren't used decoratively but as precise diagnostic tools. This precision is reflected in her ability to build structured symbolic systems."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: a pesquisa em Language Data Science exige tanto rigor teórico quanto capacidade de construção de sistemas. Este trecho mostra que possuo ambas as competências.
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Tabela 5 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    5. POTENCIAL PARA PESQUISA CRÍTICA EM IA LINGUÍSTICA
+                    <div class="argument-focus">Foco: originalidade e lacuna na pesquisa atual</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>Português</strong><br>
+                    "Os casos que Ariane apresenta neste dossiê demonstram uma lacuna importante na pesquisa atual: a falta de análise crítica dos sistemas de IA linguística, que frequentemente se limitam a aspectos técnicos. Ariane mostra que é possível – e necessário – analisar algoritmos com as ferramentas da teoria crítica. Seu potencial de pesquisa seria justamente preencher essa lacuna."
+                </td>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>English</strong><br>
+                    "The cases Ariane presents in this dossier demonstrate an important gap in current research: the lack of critical analysis of language AI systems, which often limit themselves to technical aspects. Ariane shows that it's possible—and necessary—to analyze algorithms with tools from critical theory. Her research potential would be precisely to fill this gap."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: comitês de admissão valorizam candidatos que identificam lacunas reais na pesquisa e têm potencial para contribuir originalmente. Este trecho posiciona minha candidatura nesse contexto.
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Tabela 6 -->
+        <table class="argument-table">
+            <tr>
+                <td colspan="2" class="argument-title">
+                    6. FORMAÇÃO HÍBRIDA E INTERDISCIPLINARIDADE
+                    <div class="argument-focus">Foco: perfil único e integração de áreas</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>Português</strong><br>
+                    "O perfil de Ariane é exatamente o que programas como o EMLDS buscam: formação em TI (infraestrutura técnica) + Letras (ferramentas críticas) + experiência profissional (aplicação real). Essa triangulação permite que ela entenda tanto a teoria linguística quanto os métodos computacionais, fazendo pontes que especialistas de uma só área não conseguem fazer."
+                </td>
+                <td class="argument-col" style="text-align:justify;">
+                    <strong>English</strong><br>
+                    "Ariane's profile is exactly what programs like EMLDS seek: background in IT (technical infrastructure) + Linguistics (critical tools) + professional experience (real application). This triangulation allows her to understand both linguistic theory and computational methods, building bridges that single-area specialists cannot."
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="case-relevance" style="margin-left:0px; text-align:justify;">
+                    <strong>Observação</strong>: programas interdisciplinares como o EMLDS buscam candidatos que realmente integrem diferentes áreas. Este trecho destaca que meu perfil não é apenas "multidisciplinar", mas verdadeiramente integrador.
+                </td>
+            </tr>
+        </table>
+        
+        <div class="letter-models">
+            <h3>MODELOS DE CARTA DE RECOMENDAÇÃO (SUGESTÕES)</h3>
+            <p style="text-align:justify; margin-bottom: 15pt; font-size: 10pt;">
+                Baseado na pesquisa sobre o que o comitê do EMLDS valoriza, sugiro três abordagens diferentes para sua carta. Você pode combinar elementos de cada uma conforme julgar adequado.
+            </p>
+            
+            <div class="model-box">
+                <div class="model-title">Modelo 1: Abordagem da Transferência Metodológica</div>
+                <div class="model-approach">
+                    <strong>Foco principal:</strong> como Ariane aplica o método crítico aprendido na sala de aula a novos objetos (sistemas de IA).
+                </div>
+                <div class="model-content" style="text-align:justify;">
+                    "It is with great enthusiasm that I recommend Ariane Lesnyak Castelló for the Erasmus Mundus in Language Data Science. I taught Ariane in three courses at the University of São Paulo (Literature and Cinema, Literature and Other Arts, and Readings of the Canon 3), where she demonstrated exceptional analytical abilities and conceptual rigor.<br><br>
+                    
+                    What distinguishes Ariane is her remarkable capacity to <strong>transfer critical tools to completely new contexts</strong>. In my courses, she learned to dismantle systems of representation in films and literature; today she applies this same methodological approach to analyze language AI systems. This transfer is not superficial: she uses concepts like 'linguistic alienation', 'symbolic violence', and 'reification' with the same precision she demonstrated in her analysis of films like <em>The Florida Project</em> and <em>Eyes Wide Shut</em>.<br><br>
+                    
+                    The three cases presented in her dossier demonstrate this methodological transfer in action. She doesn't merely 'use' theory; she operationalizes it to diagnose and intervene in real systems. This ability to bridge critical theory and technical analysis is precisely what the EMLDS program seeks to develop.<br><br>
+                    
+                    I am confident that Ariane will not only excel academically in the EMLDS but will also contribute original research that bridges the gap between critical linguistics and computational methods. She represents exactly the kind of interdisciplinary scholar this program aims to form."
+                </div>
+            </div>
+            
+            <div class="model-box">
+                <div class="model-title">Modelo 2: Abordagem do Perfil Híbrido</div>
+                <div class="model-approach">
+                    <strong>Foco principal:</strong> a formação única TI + Letras (Linguística, Literatura e Licenciatura) sua relevância para pesquisa interdisciplinar.
+                </div>
+                <div class="model-content" style="text-align:justify;">
+                    "I am writing to strongly recommend Ariane Lesnyak Castelló for the EMLDS program. Having taught her in three advanced literature and film courses at USP, I can attest to her exceptional critical abilities. However, what makes Ariane's profile particularly compelling for your program is her <strong>unique hybrid background</strong>.<br><br>
+                    
+                    Ariane possesses the rare combination of technical training in Information Technology and deep formation in critical theory through her Letters degree. This triangulation—technical infrastructure + critical tools + professional application—allows her to understand problems in language AI from multiple perspectives simultaneously. She can analyze a chatbot's syntactic structures with the same rigor she applied to Kubrick's formal choices in <em>Eyes Wide Shut</em>.<br><br>
+                    
+                    Her dossier demonstrates this hybridity in action. In Case 1, she diagnoses 'linguistic alienation' in corporate chatbots using the same conceptual tools she applied to analyze affective simulation in Spike Jonze's <em>Her</em>. In Case 3, she builds semantic architectures with the same structural rigor she identified in Toni Morrison's narrative construction in <em>Beloved</em>.<br><br>
+                    
+                    The EMLDS program aims to form specialists who can truly integrate linguistic theory and computational methods. Ariane's profile shows she doesn't just 'have' both backgrounds; she actively integrates them in her analytical practice. This makes her an ideal candidate for your program."
+                </div>
+            </div>
+            
+            <div class="model-box">
+                <div class="model-title">Modelo 3: Abordagem do Potencial de Pesquisa Crítica</div>
+                <div class="model-approach">
+                    <strong>Foco principal:</strong> Como os casos demonstram lacunas na pesquisa atual que Ariane pode preencher.
+                </div>
+                <div class="model-content" style="text-align:justify;">
+                    "I recommend Ariane Lesnyak Castelló for the EMLDS with particular emphasis on her <strong>potential for critical research in language AI</strong>. As her professor in three theory-intensive courses at USP, I witnessed her develop sophisticated analytical frameworks that she now applies to a crucial emerging field.<br><br>
+                    
+                    The cases in her dossier reveal an important gap in current language AI research: the predominance of technical approaches over critical analysis. Ariane demonstrates that concepts from critical theory—developed through close analysis of works like <em>Dogville</em>, <em>The Florida Project</em>, and <em>Beloved</em>—provide essential tools for diagnosing problems that purely quantitative methods miss.<br><br>
+                    
+                    For instance, her analysis of 'linguistic alienation' in corporate chatbots (Case 1) shows how syntactic choices can reproduce labor alienation at scale. Her work on dialect preservation in translation algorithms (Case 2) demonstrates how 'error correction' systems can function as ideological apparatuses. These are not just 'applications' of theory but genuine contributions to how we understand and intervene in language technologies.<br><br>
+                    
+                    The EMLDS program's unique strength is its integration of critical perspectives with data science methods. Ariane is precisely the kind of scholar who can push this integration further, producing research that doesn't just analyze language data but critically examines the power structures embedded within it. I have no doubt she will make significant contributions to this emerging field."
+                </div>
+            </div>
+        </div>
+        
+        <div class="note-box" style="text-align:justify;">
+            <p><strong>Sugestão final</strong>: você pode combinar elementos das três abordagens conforme considerar mais adequado. O importante é destacar: (1) excelência acadêmica, (2) transferência metodológica, (3) interdisciplinaridade do perfil, e (4) potencial para pesquisa crítica em IA linguística.</p>
+        </div>
+        
+       
+
+<section id="anexos">
+        <h2>6. Materiais de apoio</h2>
+        
+        <div class="note-box">
+            <strong>Além deste dossiê, disponibilizo para sua consulta, caso ajude:</strong><br><br>
+            
+            <ul>
+		<li style="margin-left:25px;"><a href="https://github.com/alc-etimo/marcos/blob/main/historico-escolar-ba-licenciatura-ingles-e-portugues-USP.png?raw=true" target="_blank">Histórico Escolar USP completo</a></li>
+            <li style="margin-left:25px;"> <a href="https://github.com/alc-etimo/marcos/blob/main/historico-escolar-tecnologia-em-gestao-da-tecnologia-da-informacao-FMR.jpg?raw=true" target="_blank;">Histórico Escolar TI completo</a></li>
+
+
+<li style="margin-left:25px;"><a href="https://alc-etimo.github.io/marcos/cv-ariane-lesnyak-castello.html" target="_blank">CV atualizado com experiência profissional detalhada</li>
+
+
+<a href="https://alc-etimo.github.io/marcos/codigo-mae-case-studies.html" target="_blank;"><li style="margin-left:25px;">Portfólio com os três estudos de casos aprofundados</a></li>
+
+<li style="margin-left:25px;">Vídeos que podem ajudar na redação da carta:</li>
+	<ul>
+			<li style="margin-left:35px;">
+				<a href="https://www.youtube.com/watch?v=n1thpoBGXqU" target="_blank" style="color: #003366;">What makes a good college recommendation letter? | Bates College</a></li>
+			<li style="margin-left:35px;">
+				<a href="https://www.youtube.com/watch?v=nDRLs1llh2U" target="_blank" style="color: #003366;">Tips on Letters of Reference | Stanford Graduate School of Business</a></li>
+			<li style="margin-left:35px;">
+				<a href="https://www.youtube.com/watch?v=Zcpwdcvz3KE" target="_blank" style="color: #003366;">Elements of a strong recommendation letter | YouTube College Admissions</a></li>
+            
+        </div>
+    </section>
+
+
+
+
+
+ <div class="final-argument">
+            <h3 style="border: none; text-align: center; color: #003366; margin-bottom: 15pt;">Marcos,</h3>
+            
+            <p style="text-align:justify;">
+                Lembro de como você nos ensinou que a análise crítica não é exercício acadêmico abstrato, mas <strong>ferramenta para desmontar o real</strong>. Nas suas aulas, aprendi a escavar filmes, textos, obras – encontrar nas formas culturais os mecanismos de poder, os diagnósticos sociais, as patologias de época.
+            </p>
+            
+            <p style="text-align:justify;">
+                Nos últimos cinco anos, fiz exatamente isso com sistemas de IA linguística. Os três casos que apresentei aqui são <strong>aplicações diretas do método que aprendi na sua sala</strong>. A mesma análise que fiz de <em>The Florida Project</em> fiz de <em>chatbots</em> corporativos. A mesma atenção ao apagamento de vozes que aprendi com Toni Morrison aplico a <em>scripts</em> de <em>call centers</em>. O mesmo rigor formal que analisei em Kubrick uso para construir arquiteturas semânticas.
+            </p>
+            
+            <p style="text-align:justify;">
+                O EMLDS é a chance de levar essa prática para a academia. Não para abandonar a crítica, mas para <strong>fortalecê-la com metodologia rigorosa</strong>. Quero pesquisar como os grandes modelos de linguagem reproduzem, em escala global, os mesmos mecanismos que a teoria crítica mapeou na cultura – e como podemos intervir.
+            </p>
+            
+            <p style="text-align:justify;">
+                Sua carta pode falar não apenas das minhas notas (10, 8.5, 9.5 nas suas disciplinas), mas da <strong>capacidade de aplicar teoria crítica a problemas reais</strong>. Você viu como analiso sistemas culturais – este dossiê mostra como analiso sistemas tecnológicos. O método é o mesmo.
+            </p>
+            
+            <p style="text-align:justify;">
+                Muito obrigada pelo apoio e por ter me ensinado as ferramentas que hoje uso para desmontar os novos aparatos de poder do capitalismo tardio.
+            </p>
+            
+            <br>
+            <center>
+                <em>Abraços,<br>
+                <strong>Ariane Lesnyak Castelló</strong></em>
+            </center>
+        </div>
+    </section>
+
+    <script>
+        // Função para as abas principais dos casos
+        function openCaseTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("case-tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("case-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Função para as abas de análise (seção das disciplinas)
+        function openAnalysisTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("analysis-tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("analysis-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Funções para as sub-abas de cada caso
+        function openCase1Tab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.querySelectorAll('#case1 .analysis-tab-content');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.querySelectorAll('#case1 .analysis-tab');
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        function openCase2Tab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.querySelectorAll('#case2 .analysis-tab-content');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.querySelectorAll('#case2 .analysis-tab');
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        function openCase3Tab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.querySelectorAll('#case3 .analysis-tab-content');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.querySelectorAll('#case3 .analysis-tab');
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ativa a primeira aba de casos
+            document.querySelector('.case-tab.active').click();
+            
+            // Ativa a primeira sub-aba do caso 1
+            document.querySelector('#case1 .analysis-tab.active').click();
+        });
+    </script>
+</body>
+</html>
